@@ -1,5 +1,5 @@
 import Main from '@/components/main'
-import parentView from '@/components/parent-view'
+// import parentView from '@/components/parent-view'
 
 /**
  * meta除了原生参数外可配置的参数:
@@ -17,22 +17,42 @@ import parentView from '@/components/parent-view'
  * }
  */
 
- const Login = () => import('@/view/login/login.vue')
+const Login = () => import('@/view/login/login.vue')
 
- const Basic = () => import('@/view/basic/basic.vue')
- const SIP = () => import('@/view/sip/sip.vue')
- const Gateway = () => import('@/view/gateway/gateway.vue')
- const Message = () => import('@/view/message/message.vue')
- const Application = () => import('@/view/application/application.vue')
- const Advanced = () => import('@/view/advanced/advanced.vue')
- const System = () => import('@/view/system/system.vue')
- const Status = () => import('@/view/status/status.vue')
- const Save = () => import('@/view/save/save.vue')
+const Basic = () => import('@/view/basic/basic.vue')
 
- const Page401 = () => import('@/view/error-page/401.vue')
- const Page404 = () => import('@/view/error-page/404.vue')
- const Page500 = () => import('@/view/error-page/500.vue')
+const SIPBasic = () => import('@/view/sip/sip.vue')
+const SIPWiring = () => import('@/view/sip/wiring.vue')
+const SIPStun = () => import('@/view/sip/stun.vue')
+const SIPMnp = () => import('@/view/sip/mnp.vue')
 
+const GatewayPort = () => import('@/view/gateway/port.vue')
+const GatewayBsc = () => import('@/view/gateway/bsc.vue')
+const GatewayImei = () => import('@/view/gateway/imei.vue')
+const GatewayPin = () => import('@/view/gateway/pin.vue')
+const GatewaySim = () => import('@/view/gateway/sim.vue')
+const GatewayPhoneNumber = () => import('@/view/gateway/phone_number.vue')
+const GatewayPrice = () => import('@/view/gateway/price.vue')
+const GatewayAt = () => import('@/view/gateway/at.vue')
+const GatewayUssd = () => import('@/view/gateway/ussd.vue')
+const GatewayCard = () => import('@/view/gateway/card.vue')
+const GatewayCall = () => import('@/view/gateway/call.vue')
+const GatewayGprs = () => import('@/view/gateway/gprs.vue')
+const GatewayOCDL = () => import('@/view/gateway/outcall_duration_limit.vue')
+const GatewayOCTL = () => import('@/view/gateway/outcall_times_limit.vue')
+const GatewayCTL = () => import('@/view/gateway/call_times_limit.vue')
+const GatewayOCFL = () => import('@/view/gateway/outcall_freq_limit.vue')
+
+const Message = () => import('@/view/message/message.vue')
+const Application = () => import('@/view/application/application.vue')
+const Advanced = () => import('@/view/advanced/advanced.vue')
+const System = () => import('@/view/system/system.vue')
+const Status = () => import('@/view/status/status.vue')
+const Save = () => import('@/view/save/save.vue')
+
+const Page401 = () => import('@/view/error-page/401.vue')
+const Page404 = () => import('@/view/error-page/404.vue')
+const Page500 = () => import('@/view/error-page/500.vue')
 
 export default [
   {
@@ -52,7 +72,7 @@ export default [
     meta: {
       hideInMenu: true,
       notCache: true
-    },
+    }
   },
   {
     path: '/basic',
@@ -71,7 +91,7 @@ export default [
           icon: 'ios-book'
         },
         component: Basic
-      },
+      }
     ]
   },
   {
@@ -84,13 +104,40 @@ export default [
     },
     children: [
       {
-        path: 'sip_setting',
-        name: 'sip_setting',
+        path: 'basic',
+        name: 'sip_basic_setting',
         meta: {
-          title: 'SIP设置',
+          title: '基本设置',
           icon: 'ios-book'
         },
-        component: SIP
+        component: SIPBasic
+      },
+      {
+        path: 'wiring',
+        name: 'wiring_setting',
+        meta: {
+          title: '线路设置',
+          icon: 'ios-book'
+        },
+        component: SIPWiring
+      },
+      {
+        path: 'stun',
+        name: 'stun_setting',
+        meta: {
+          title: 'STUN设置',
+          icon: 'ios-book'
+        },
+        component: SIPStun
+      },
+      {
+        path: 'mnp',
+        name: 'mnp_setting',
+        meta: {
+          title: '线路设置',
+          icon: 'ios-book'
+        },
+        component: SIPMnp
       }
     ]
   },
@@ -104,13 +151,148 @@ export default [
     },
     children: [
       {
-        path: 'gateway_setting',
-        name: 'gateway',
+        path: 'port',
+        name: 'port_setting',
         meta: {
-          title: '网关设置',
+          title: '端口设置',
           icon: 'ios-book'
         },
-        component: Gateway
+        component: GatewayPort
+      },
+      {
+        path: 'bsc',
+        name: 'bsc_setting',
+        meta: {
+          title: '基站设置',
+          icon: 'ios-book'
+        },
+        component: GatewayBsc
+      },
+      {
+        path: 'imei',
+        name: 'imei_setting',
+        meta: {
+          title: 'IMEI设置',
+          icon: 'ios-book'
+        },
+        component: GatewayImei
+      },
+      {
+        path: 'pin',
+        name: 'pin_setting',
+        meta: {
+          title: 'PIN设置',
+          icon: 'ios-book'
+        },
+        component: GatewayPin
+      },
+      {
+        path: 'sim',
+        name: 'sim_control',
+        meta: {
+          title: 'SIM管理',
+          icon: 'ios-book'
+        },
+        component: GatewaySim
+      },
+      {
+        path: 'number',
+        name: 'number_control',
+        meta: {
+          title: '号码管理',
+          icon: 'ios-book'
+        },
+        component: GatewayPhoneNumber
+      },
+      {
+        path: 'price',
+        name: 'price_setting',
+        meta: {
+          title: '计费设置',
+          icon: 'ios-book'
+        },
+        component: GatewayPrice
+      },
+      {
+        path: 'at',
+        name: 'at_command',
+        meta: {
+          title: 'AT命令',
+          icon: 'ios-book'
+        },
+        component: GatewayAt
+      },
+      {
+        path: 'ussd',
+        name: 'ussd_command',
+        meta: {
+          title: 'USSD命令',
+          icon: 'ios-book'
+        },
+        component: GatewayUssd
+      },
+      {
+        path: 'card',
+        name: 'card_setting',
+        meta: {
+          title: '切卡设置',
+          icon: 'ios-book'
+        },
+        component: GatewayCard
+      },
+      {
+        path: 'communication',
+        name: 'call_setting',
+        meta: {
+          title: '互打设置',
+          icon: 'ios-book'
+        },
+        component: GatewayCall
+      },
+      {
+        path: 'gprs',
+        name: 'gprs_setting',
+        meta: {
+          title: '上网设置',
+          icon: 'ios-book'
+        },
+        component: GatewayGprs
+      },
+      {
+        path: 'ocdl',
+        name: 'outcall_duration_limit',
+        meta: {
+          title: '呼叫时长限制',
+          icon: 'ios-book'
+        },
+        component: GatewayOCDL
+      },
+      {
+        path: 'octl',
+        name: 'outcall_times_limit',
+        meta: {
+          title: '呼叫次数限制',
+          icon: 'ios-book'
+        },
+        component: GatewayOCTL
+      },
+      {
+        path: 'ctl',
+        name: 'call_times_limit',
+        meta: {
+          title: '通话次数限制',
+          icon: 'ios-book'
+        },
+        component: GatewayCTL
+      },
+      {
+        path: 'ocfl',
+        name: 'outcall_freq_limit',
+        meta: {
+          title: '呼叫频率限制',
+          icon: 'ios-book'
+        },
+        component: GatewayOCFL
       }
     ]
   },
