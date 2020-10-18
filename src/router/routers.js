@@ -21,7 +21,7 @@ const Login = () => import('@/view/login/login.vue')
 
 const Basic = () => import('@/view/basic/basic.vue')
 
-const SIPBasic = () => import('@/view/sip/sip.vue')
+const SIPBasic = () => import('@/view/sip/basic.vue')
 const SIPWiring = () => import('@/view/sip/wiring.vue')
 const SIPStun = () => import('@/view/sip/stun.vue')
 const SIPMnp = () => import('@/view/sip/mnp.vue')
@@ -43,11 +43,62 @@ const GatewayOCTL = () => import('@/view/gateway/outcall_times_limit.vue')
 const GatewayCTL = () => import('@/view/gateway/call_times_limit.vue')
 const GatewayOCFL = () => import('@/view/gateway/outcall_freq_limit.vue')
 
-const Message = () => import('@/view/message/message.vue')
-const Application = () => import('@/view/application/application.vue')
-const Advanced = () => import('@/view/advanced/advanced.vue')
-const System = () => import('@/view/system/system.vue')
-const Status = () => import('@/view/status/status.vue')
+const MessagePort = () => import('@/view/message/port.vue')
+const MessageSend = () => import('@/view/message/send.vue')
+const MessageRecieve = () => import('@/view/message/receive.vue')
+const MessageTransmit = () => import('@/view/message/transmit.vue')
+const MessageSendEach = () => import('@/view/message/sendEach.vue')
+const MessageControl = () => import('@/view/message/control.vue')
+const MessageSmpp = () => import('@/view/message/smpp.vue')
+const MessageEims = () => import('@/view/message/eims.vue')
+const MessagePrefix = () => import('@/view/message/prefix.vue')
+const MessageFilter = () => import('@/view/message/filter.vue')
+const MessageMMs = () => import('@/view/message/mms.vue')
+
+
+const ApplicationTelDir = () => import('@/view/application/telephone_directory.vue')
+const ApplicationDialingRules = () => import('@/view/application/dialing_rules.vue')
+const ApplicationExchange = () => import('@/view/application/exchange.vue')
+const ApplicationInBlack = () => import('@/view/application/incoming_black.vue')
+const ApplicationInWhite = () => import('@/view/application/incoming_white.vue')
+const ApplicationChangeOnline = () => import('@/view/application/change_card_online.vue')
+const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
+const ApplicationStatusReport = () => import('@/view/application/status_report.vue')
+
+
+const AdvancedInternet = () => import('@/view/advanced/internet.vue')
+const AdvancedPort = () => import('@/view/advanced/port.vue')
+const AdvancedEncode = () => import('@/view/advanced/encode.vue')
+const AdvancedLed = () => import('@/view/advanced/led.vue')
+const AdvancedCallback = () => import('@/view/advanced/callback.vue')
+const AdvancedWait = () => import('@/view/advanced/call_waiting.vue')
+const AdvancedMediaRecord = () => import('@/view/advanced/media_record.vue')
+const AdvancedOtherSetting = () => import('@/view/advanced/other_setting.vue')
+
+
+const SystemUser = () => import('@/view/system/user.vue')
+const SystemRole = () => import('@/view/system/role.vue')
+const SystemDevice = () => import('@/view/system/device.vue')
+const SystemFile = () => import('@/view/system/file.vue')
+const SystemUpdate = () => import('@/view/system/update.vue')
+const SystemTest = () => import('@/view/system/test.vue')
+const SystemMonitor = () => import('@/view/system/monitor.vue')
+const SystemWarning = () => import('@/view/system/warning.vue')
+
+
+
+const PortStatus = () => import('@/view/status/port.vue')
+const CallStatus = () => import('@/view/status/call_status.vue')
+const SystemStatus = () => import('@/view/status/system.vue')
+const CallStatistics = () => import('@/view/status/call_statistics.vue')
+const CallEachStatistics = () => import('@/view/status/call_each_statistics.vue')
+const MediaStatistics = () => import('@/view/status/media_statistics.vue')
+const MessageStatistics = () => import('@/view/status/message_statistics.vue')
+const GprsStatistics = () => import('@/view/status/gprs_statistics.vue')
+const Cdr = () => import('@/view/status/cdr.vue')
+const Sms = () => import('@/view/status/sms.vue')
+
+
 const Save = () => import('@/view/save/save.vue')
 
 const Page401 = () => import('@/view/error-page/401.vue')
@@ -79,7 +130,7 @@ export default [
     name: 'basic',
     component: Main,
     meta: {
-      title: '基础设置',
+      title: '基本设置',
       icon: 'md-home'
     },
     children: [
@@ -87,7 +138,7 @@ export default [
         path: 'basic_page',
         name: 'basic_setting',
         meta: {
-          title: '基础设置',
+          title: '基本设置',
           icon: 'ios-book'
         },
         component: Basic
@@ -96,7 +147,7 @@ export default [
   },
   {
     path: '/sip',
-    name: 'sip',
+    name: 'sip_setting',
     component: Main,
     meta: {
       title: 'SIP设置',
@@ -206,9 +257,9 @@ export default [
       },
       {
         path: 'price',
-        name: 'price_setting',
+        name: 'price_control',
         meta: {
-          title: '计费设置',
+          title: '计费管理',
           icon: 'ios-book'
         },
         component: GatewayPrice
@@ -298,7 +349,7 @@ export default [
   },
   {
     path: '/message',
-    name: 'message',
+    name: 'message_setting',
     component: Main,
     meta: {
       title: '短信设置',
@@ -306,19 +357,110 @@ export default [
     },
     children: [
       {
-        path: 'message_setting',
-        name: 'message_setting',
+        path: 'port',
+        name: 'port_setting',
         meta: {
-          title: '短信设置',
+          title: '端口设置',
           icon: 'ios-book'
         },
-        component: Message
+        component: MessagePort
+      },
+      {
+        path: 'send',
+        name: 'message_send',
+        meta: {
+          title: '短信发送',
+          icon: 'ios-book'
+        },
+        component: MessageSend
+      },
+      {
+        path: 'receive',
+        name: 'message_receive',
+        meta: {
+          title: '短信接收',
+          icon: 'ios-book'
+        },
+        component: MessageRecieve
+      },
+      {
+        path: 'transmit',
+        name: 'message_transmit',
+        meta: {
+          title: '短信转发',
+          icon: 'ios-book'
+        },
+        component: MessageTransmit
+      },
+      {
+        path: 'send_each',
+        name: 'message_send_each',
+        meta: {
+          title: '短信互发',
+          icon: 'ios-book'
+        },
+        component: MessageSendEach
+      },
+      {
+        path: 'control',
+        name: 'message_control',
+        meta: {
+          title: '短信控制',
+          icon: 'ios-book'
+        },
+        component: MessageControl
+      },
+      {
+        path: 'smpp',
+        name: 'smpp_setting',
+        meta: {
+          title: 'SMPP设置',
+          icon: 'ios-book'
+        },
+        component: MessageSmpp
+      },
+      {
+        path: 'eims',
+        name: 'eims_setting',
+        meta: {
+          title: 'EIMS设置',
+          icon: 'ios-book'
+        },
+        component: MessageEims
+      },
+      {
+        path: 'prefix',
+        name: 'prefix_match',
+        meta: {
+          title: '前缀匹配',
+          icon: 'ios-book'
+        },
+        component: MessagePrefix
+      },
+      {
+        path: 'filter',
+        name: 'message_filter',
+        meta: {
+          title: '短信过滤',
+          icon: 'ios-book'
+        },
+        component: MessageFilter
+      },
+      {
+        path: 'mms',
+        name: 'mms_config',
+        meta: {
+          title: '彩信配置',
+          icon: 'ios-book'
+        },
+        component: MessageMMs
       }
+
     ]
   },
   {
     path: '/application',
-    name: 'application',
+    name: 'application_setting',
     component: Main,
     meta: {
       title: '应用设置',
@@ -326,39 +468,165 @@ export default [
     },
     children: [
       {
-        path: 'application_setting',
-        name: 'application_setting',
+        path: 'tel_dir',
+        name: 'telephone_directory',
         meta: {
-          title: '应用设置',
+          title: '电话簿',
           icon: 'ios-book'
         },
-        component: Application
-      }
+        component: ApplicationTelDir
+      },
+      {
+        path: 'rule',
+        name: 'dialing_rules',
+        meta: {
+          title: '拨号规则',
+          icon: 'ios-book'
+        },
+        component: ApplicationDialingRules
+      },
+      {
+        path: 'exchange',
+        name: 'exchange_setting',
+        meta: {
+          title: '替换设置',
+          icon: 'ios-book'
+        },
+        component: ApplicationExchange
+      },
+      {
+        path: 'in_black',
+        name: 'incming_black_list',
+        meta: {
+          title: '呼入黑名单',
+          icon: 'ios-book'
+        },
+        component: ApplicationInBlack
+      },
+      {
+        path: 'in_white',
+        name: 'incming_white_list',
+        meta: {
+          title: '呼入白名单',
+          icon: 'ios-book'
+        },
+        component: ApplicationInWhite
+      },
+      {
+        path: 'change_online',
+        name: 'change_card_online',
+        meta: {
+          title: '远程换卡',
+          icon: 'ios-book'
+        },
+        component: ApplicationChangeOnline
+      },
+      {
+        path: 'auto',
+        name: 'auto_charge',
+        meta: {
+          title: '自动充值',
+          icon: 'ios-book'
+        },
+        component: ApplicationAutoCharge
+      },
+      {
+        path: 'report',
+        name: 'status_report',
+        meta: {
+          title: '状态报告',
+          icon: 'ios-book'
+        },
+        component: ApplicationStatusReport
+      },
     ]
   },
   {
     path: '/advanced',
-    name: 'advanced',
+    name: 'advanced_setup',
     component: Main,
     meta: {
-      title: '应用设置',
+      title: '高级设置',
       icon: 'md-home'
     },
     children: [
       {
-        path: 'advanced_setup',
-        name: 'advanced_setup',
+        path: 'internet',
+        name: 'internet_setting',
         meta: {
-          title: '高级设置',
+          title: '网络设置',
           icon: 'ios-book'
         },
-        component: Advanced
-      }
+        component: AdvancedInternet
+      },
+      {
+        path: 'port',
+        name: 'port_setting',
+        meta: {
+          title: '端口设置',
+          icon: 'ios-book'
+        },
+        component: AdvancedPort
+      },
+      {
+        path: 'encode',
+        name: 'encode_select',
+        meta: {
+          title: '编码选择',
+          icon: 'ios-book'
+        },
+        component: AdvancedEncode
+      },
+      {
+        path: 'led',
+        name: 'led_setting',
+        meta: {
+          title: 'LED设置',
+          icon: 'ios-book'
+        },
+        component: AdvancedLed
+      },
+      {
+        path: 'callback',
+        name: 'callback_setting',
+        meta: {
+          title: '回拨设置',
+          icon: 'ios-book'
+        },
+        component: AdvancedCallback
+      },
+      {
+        path: 'wait',
+        name: 'call_waiting',
+        meta: {
+          title: '呼叫等待',
+          icon: 'ios-book'
+        },
+        component: AdvancedWait
+      },
+      {
+        path: 'media',
+        name: 'media_record',
+        meta: {
+          title: '媒体记录',
+          icon: 'ios-book'
+        },
+        component: AdvancedMediaRecord
+      },
+      {
+        path: 'other',
+        name: 'other_setting',
+        meta: {
+          title: '其他设置',
+          icon: 'ios-book'
+        },
+        component: AdvancedOtherSetting
+      },
     ]
   },
   {
     path: '/system',
-    name: 'system',
+    name: 'system_setting',
     component: Main,
     meta: {
       title: '系统设置',
@@ -366,19 +634,82 @@ export default [
     },
     children: [
       {
-        path: 'system_setting',
-        name: 'system_setting',
+        path: 'user',
+        name: 'user_control',
         meta: {
-          title: '系统设置',
+          title: '用户管理',
           icon: 'ios-book'
         },
-        component: System
-      }
+        component: SystemUser
+      },
+      {
+        path: 'role',
+        name: 'role_control',
+        meta: {
+          title: '角色管理',
+          icon: 'ios-book'
+        },
+        component: SystemRole
+      },
+      {
+        path: 'device',
+        name: 'device_control',
+        meta: {
+          title: '设备管理',
+          icon: 'ios-book'
+        },
+        component: SystemDevice
+      },
+      {
+        path: 'file',
+        name: 'file_control',
+        meta: {
+          title: '文件管理',
+          icon: 'ios-book'
+        },
+        component: SystemFile
+      },
+      {
+        path: 'update',
+        name: 'update & renew',
+        meta: {
+          title: '系统升级或恢复',
+          icon: 'ios-book'
+        },
+        component: SystemUpdate
+      },
+      {
+        path: 'test',
+        name: 'net_test',
+        meta: {
+          title: '网络测试',
+          icon: 'ios-book'
+        },
+        component: SystemTest
+      },
+      {
+        path: 'monitor',
+        name: 'system_monitor',
+        meta: {
+          title: '系统监控',
+          icon: 'ios-book'
+        },
+        component: SystemMonitor
+      },
+      {
+        path: 'warning',
+        name: 'system_warning',
+        meta: {
+          title: '系统告警',
+          icon: 'ios-book'
+        },
+        component: SystemWarning
+      },
     ]
   },
   {
     path: '/status',
-    name: 'status',
+    name: 'runtime_status',
     component: Main,
     meta: {
       title: '运行状态',
@@ -386,14 +717,95 @@ export default [
     },
     children: [
       {
-        path: 'runtime_status',
-        name: 'runtime_status',
+        path: 'port',
+        name: 'port_status',
         meta: {
-          title: '运行状态',
+          title: '端口状态',
           icon: 'ios-book'
         },
-        component: Status
-      }
+        component: PortStatus
+      },
+      {
+        path: 'call',
+        name: 'call_status',
+        meta: {
+          title: '呼叫状态',
+          icon: 'ios-book'
+        },
+        component: CallStatus
+      },
+      {
+        path: 'system',
+        name: 'system_status',
+        meta: {
+          title: '系统状态',
+          icon: 'ios-book'
+        },
+        component: SystemStatus
+      },
+      {
+        path: 'call_statistics',
+        name: 'call_statistics',
+        meta: {
+          title: '呼叫统计',
+          icon: 'ios-book'
+        },
+        component: CallStatistics
+      },
+      {
+        path: 'call_each_statistics',
+        name: 'call_each_statistics',
+        meta: {
+          title: '互打统计',
+          icon: 'ios-book'
+        },
+        component: CallEachStatistics
+      },
+      {
+        path: 'media',
+        name: 'media_statistics',
+        meta: {
+          title: '媒体统计',
+          icon: 'ios-book'
+        },
+        component: MediaStatistics
+      },
+      {
+        path: 'message',
+        name: 'message_statistics',
+        meta: {
+          title: '短信统计',
+          icon: 'ios-book'
+        },
+        component: MessageStatistics
+      },
+      {
+        path: 'gprs',
+        name: 'gprs_statistics',
+        meta: {
+          title: '流量统计',
+          icon: 'ios-book'
+        },
+        component: GprsStatistics
+      },
+      {
+        path: 'cdr',
+        name: 'crd_search',
+        meta: {
+          title: 'CDR查询',
+          icon: 'ios-book'
+        },
+        component: Cdr
+      },
+      {
+        path: 'sms',
+        name: 'sms_search',
+        meta: {
+          title: 'SMS查询',
+          icon: 'ios-book'
+        },
+        component: Sms
+      },
     ]
   },
   {

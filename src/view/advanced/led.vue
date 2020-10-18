@@ -3,7 +3,7 @@
 </style>
 <template>
   <div class="page-content">
-    <h2>短信设置</h2>
+    <h2>LED设置</h2>
   </div>
 </template>
 

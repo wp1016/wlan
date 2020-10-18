@@ -3,7 +3,7 @@
 </style>
 <template>
   <div class="page-content">
-    <h2>应用设置</h2>
+    <h2>SMPP设置</h2>
   </div>
 </template>
 
