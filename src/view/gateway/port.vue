@@ -1,12 +1,12 @@
 <template>
   <div class="page-content">
     <h1 class="page-title">端口设置</h1>
-    <Card class="card-content" title="基本设置">
-      <Form :model="formData" :label-width="180">
+    <Form :model="formData" :label-width="180">
+      <Card class="card-content" title="基本设置">
         <Row>
           <Col span="12">
             <FormItem label="频段选择">
-              <Select v-model="formData.band">
+              <Select v-model="formData.frequencyBandSelect">
                 <Option v-for="item in bandOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -15,7 +15,7 @@
         <Row>
           <Col span="12">
             <FormItem label="网络类型">
-              <Select v-model="formData.netType">
+              <Select v-model="formData.netWorkType">
                 <Option v-for="item in netTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -24,8 +24,8 @@
         <Row>
           <Col span="12">
             <FormItem label="注册类型">
-              <Select v-model="formData.registryType">
-                <Option v-for="item in registryTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
+              <Select v-model="formData.registerType">
+                <Option v-for="item in registerTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
           </Col>
@@ -37,7 +37,7 @@
           </i-switch>
         </FormItem>
         <FormItem label="不规则卡支持">
-          <i-switch v-model="formData.anomalyCard" size="large">
+          <i-switch v-model="formData.irregularCardSupport" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
@@ -46,37 +46,35 @@
           <Button type="primary" @click="handleSubmit">确定</Button>
           <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
         </FormItem>
-      </Form>
-    </Card>
-    <Card class="card-content" title="端口硬件参数">
-      <Table :columns="tableColumns" :data="tableData">
-        <template slot-scope="{ row }" slot="simCardAppoint">
-          <CheckboxGroup v-model="row.simCardAppoint">
-            <Checkbox v-for="item in CheckBoxOptions" :key="item.value" :label="item.value">{{item.label}}</Checkbox>
-          </CheckboxGroup>
-        </template>
+      </Card>
 
-        <template slot-scope="{ row }" slot="lockOperators">
-          <Input v-model="row.lockOperators"></Input>
-        </template>
-
-        <template slot-scope="{ row }" slot="inputVolume">
-          <Input v-model="row.inputVolume"></Input>
-        </template>
-
-        <template slot-scope="{ row }" slot="outputVolume">
-          <Input v-model="row.outputVolume"></Input>
-        </template>
-
-        <template slot-scope="{ row, index }" slot="opration">
-          <template v-if="editIndex===index">
-            <Button type="primary" size="small">确定</Button>
-            <Button type="error" size="small" @click="editIndex=-1" style="margin-left: 8px;">取消</Button>
+       <Card class="card-content" title="端口硬件参数">
+        <Table :columns="tableColumns" :data="tableData">
+          <template slot-scope="{ row }" slot="simCardAppoint">
+            <CheckboxGroup v-model="row.simCardAppoint">
+              <Checkbox v-for="item in CheckBoxOptions" :key="item.value" :label="item.value">{{item.label}}</Checkbox>
+            </CheckboxGroup>
           </template>
-          <Button v-else type="primary" size="small" @click="editIndex=index">操作</Button>
-        </template>
-      </Table>
-    </Card>
+
+          <template slot-scope="{ row }" slot="lockOperators">
+            <Input v-model="row.lockOperators"></Input>
+          </template>
+
+          <template slot-scope="{ row }" slot="inputVolume">
+            <Input v-model="row.inputVolume"></Input>
+          </template>
+
+          <template slot-scope="{ row }" slot="outputVolume">
+            <Input v-model="row.outputVolume"></Input>
+          </template>
+
+        </Table>
+        <FormItem style="margin-top:10px;">
+          <Button type="primary" @click="handleSubmit">确定</Button>
+          <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
+        </FormItem>
+      </Card>
+    </Form>
   </div>
 </template>
 
@@ -90,30 +88,30 @@ export default {
     return {
       editIndex: -1,
       formData: {
-        band: '1',
-        netType: '1',
-        registryType: '1',
+        frequencyBandSelect: 0,
+        netWorkType: 0,
+        registerType: 0,
         volte: false,
-        anomalyCard: false
+        irregularCardSupport: false
       },
       bandOptions: genarateOptions(feqBandOptions),
       netTypeOptions: genarateOptions(netTypeOptions),
-      registryTypeOptions: genarateOptions(registryTypeOptions),
+      registerTypeOptions: genarateOptions(registryTypeOptions),
       CheckBoxOptions: [
         {
-          value: '0',
+          value: 0,
           label: 'A'
         },
         {
-          value: '1',
+          value: 1,
           label: 'B'
         },
         {
-          value: '2',
+          value: 2,
           label: 'C'
         },
         {
-          value: '3',
+          value: 3,
           label: 'D'
         }
       ],
@@ -159,19 +157,13 @@ export default {
         {
           title: 'IMEI',
           key: 'imei'
-        },
-        {
-          type: 'opration',
-          title: '操作',
-          width: 130,
-          slot: 'opration'
         }
       ],
       tableData: [
         {
-          port: '1',
-          simCardAppoint: ['0','1','2','3'],
-          lockOperators: '0',
+          port: 1,
+          simCardAppoint: [0, 1, 2, 3],
+          lockOperators: 0,
           baseStation: 0,
           operators: 0,
           inputVolume: 0,
@@ -182,8 +174,8 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {},
-    handleCancel() {}
+    handleSubmit () {},
+    handleCancel () {}
   }
 }
 </script>

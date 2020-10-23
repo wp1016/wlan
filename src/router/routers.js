@@ -55,7 +55,6 @@ const MessagePrefix = () => import('@/view/message/prefix.vue')
 const MessageFilter = () => import('@/view/message/filter.vue')
 const MessageMMs = () => import('@/view/message/mms.vue')
 
-
 const ApplicationTelDir = () => import('@/view/application/telephone_directory.vue')
 const ApplicationDialingRules = () => import('@/view/application/dialing_rules.vue')
 const ApplicationExchange = () => import('@/view/application/exchange.vue')
@@ -64,7 +63,6 @@ const ApplicationInWhite = () => import('@/view/application/incoming_white.vue')
 const ApplicationChangeOnline = () => import('@/view/application/change_card_online.vue')
 const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
 const ApplicationStatusReport = () => import('@/view/application/status_report.vue')
-
 
 const AdvancedInternet = () => import('@/view/advanced/internet.vue')
 const AdvancedPort = () => import('@/view/advanced/port.vue')
@@ -75,7 +73,6 @@ const AdvancedWait = () => import('@/view/advanced/call_waiting.vue')
 const AdvancedMediaRecord = () => import('@/view/advanced/media_record.vue')
 const AdvancedOtherSetting = () => import('@/view/advanced/other_setting.vue')
 
-
 const SystemUser = () => import('@/view/system/user.vue')
 const SystemRole = () => import('@/view/system/role.vue')
 const SystemDevice = () => import('@/view/system/device.vue')
@@ -84,8 +81,6 @@ const SystemUpdate = () => import('@/view/system/update.vue')
 const SystemTest = () => import('@/view/system/test.vue')
 const SystemMonitor = () => import('@/view/system/monitor.vue')
 const SystemWarning = () => import('@/view/system/warning.vue')
-
-
 
 const PortStatus = () => import('@/view/status/port.vue')
 const CallStatus = () => import('@/view/status/call_status.vue')
@@ -97,7 +92,6 @@ const MessageStatistics = () => import('@/view/status/message_statistics.vue')
 const GprsStatistics = () => import('@/view/status/gprs_statistics.vue')
 const Cdr = () => import('@/view/status/cdr.vue')
 const Sms = () => import('@/view/status/sms.vue')
-
 
 const Save = () => import('@/view/save/save.vue')
 
@@ -496,7 +490,7 @@ export default [
       },
       {
         path: 'in_black',
-        name: 'incming_black_list',
+        name: 'incoming_black_list',
         meta: {
           title: '呼入黑名单',
           icon: 'ios-book'
@@ -505,7 +499,7 @@ export default [
       },
       {
         path: 'in_white',
-        name: 'incming_white_list',
+        name: 'incoming_white_list',
         meta: {
           title: '呼入白名单',
           icon: 'ios-book'
@@ -538,7 +532,7 @@ export default [
           icon: 'ios-book'
         },
         component: ApplicationStatusReport
-      },
+      }
     ]
   },
   {
@@ -621,7 +615,7 @@ export default [
           icon: 'ios-book'
         },
         component: AdvancedOtherSetting
-      },
+      }
     ]
   },
   {
@@ -704,7 +698,7 @@ export default [
           icon: 'ios-book'
         },
         component: SystemWarning
-      },
+      }
     ]
   },
   {
@@ -805,7 +799,7 @@ export default [
           icon: 'ios-book'
         },
         component: Sms
-      },
+      }
     ]
   },
   {

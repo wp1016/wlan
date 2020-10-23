@@ -1,21 +1,35 @@
 export const feqBandOptions = {
-  1: '900 MHz',
-  2: '1800 MHz',
-  3: '1900 MHz',
-  4: '900-1800 MHz',
-  5: '850-1900 MHz',
-  6: '850-900~1800-1900 MHz'
+  0: '900 MHz',
+  1: '1800 MHz',
+  2: '1900 MHz',
+  3: '900-1800 MHz',
+  4: '850-1900 MHz',
+  5: '850-900~1800-1900 MHz'
 }
 
 export const netTypeOptions = {
-  1: '自动',
-  2: '2G',
-  3: '3G',
-  4: '4G',
-  5: '不配置'
+  0: '自动',
+  1: '2G',
+  2: '3G',
+  3: '4G',
+  4: '不配置'
 }
 
 export const registryTypeOptions = {
-  1: '语音网络',
-  2: '数据网络'
+  0: '语音网络',
+  1: '数据网络'
+}
+
+export const reviseOptions = {
+  0: '指定前缀',
+  1: '自定义范围',
+  2: '从ESPS获取IMEI',
+  3: '从ETMS获取IMEI'
+}
+
+export const simNumberSourceOptions = {
+  0: '本地',
+  1: 'ESPS',
+  2: 'ETMS',
+  3: '不限制'
 }
