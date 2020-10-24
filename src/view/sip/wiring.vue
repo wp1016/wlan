@@ -2,7 +2,7 @@
   <div class="page-content">
     <h1 class="page-title">线路设置</h1>
     <Card class="card-content" title="SIP账号">
-      <Form v-model="formData" :label-width="180">
+      <Form :model="formData" :label-width="180">
         <Row>
           <Col span="12">
             <FormItem label="多端口注册">
@@ -55,10 +55,10 @@ export default {
       tableConfig: {}
     }
   },
-   methods: {
-    handleSubmit() {},
-    handleCancel() {},
-  },
+  methods: {
+    handleSubmit () {},
+    handleCancel () {}
+  }
 }
 </script>
 <style lang="less" scoped>

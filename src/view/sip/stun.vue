@@ -2,7 +2,7 @@
   <div class="page-content">
     <h1 class="page-title">线路设置</h1>
     <Card title="STUN">
-      <Form v-model="formData" :label-width="180">
+      <Form :model="formData" :label-width="180">
         <Row>
           <Col span="24">
             <FormItem label="STUN支持">
@@ -61,10 +61,10 @@ export default {
       }
     }
   },
-   methods: {
-    handleSubmit() {},
-    handleCancel() {},
-  },
+  methods: {
+    handleSubmit () {},
+    handleCancel () {}
+  }
 }
 </script>
 <style lang="less" scoped>

@@ -33,7 +33,7 @@ const GatewayPin = () => import('@/view/gateway/pin.vue')
 const GatewaySim = () => import('@/view/gateway/sim.vue')
 const GatewayPhoneNumber = () => import('@/view/gateway/phone_number.vue')
 const GatewayPrice = () => import('@/view/gateway/price.vue')
-const GatewayAt = () => import('@/view/gateway/at.vue')
+// const GatewayAt = () => import('@/view/gateway/at.vue')
 const GatewayUssd = () => import('@/view/gateway/ussd.vue')
 const GatewayCard = () => import('@/view/gateway/card.vue')
 const GatewayCall = () => import('@/view/gateway/call.vue')
@@ -258,15 +258,15 @@ export default [
         },
         component: GatewayPrice
       },
-      {
-        path: 'at',
-        name: 'at_command',
-        meta: {
-          title: 'AT命令',
-          icon: 'ios-book'
-        },
-        component: GatewayAt
-      },
+      // {
+      //   path: 'at',
+      //   name: 'at_command',
+      //   meta: {
+      //     title: 'AT命令',
+      //     icon: 'ios-book'
+      //   },
+      //   component: GatewayAt
+      // },
       {
         path: 'ussd',
         name: 'ussd_command',
