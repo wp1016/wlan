@@ -36,7 +36,7 @@
           <Col span="12">
             <FormItem label="基站平衡">
               <FormLabelTooltip slot="label" label="基站平衡" content="禁用，每个端口将尽量选择信号较好的基站进行注册，启用后，每个端口将尽量分散基站进行注册，以此缓解基站压力"/>
-              <i-switch v-model="formData.baseStationBalance" size="large">
+              <i-switch v-model="formData.baseStationBalance" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -54,7 +54,7 @@
         <Row>
           <Col span="6">
             <FormItem :label-width="100">
-              <Checkbox v-model="formData.withContinuousCallFailure">按连续呼叫失败</Checkbox>
+              <Checkbox v-model="formData.withContinuousCallFailure" :true-value="1" :false-value="0">按连续呼叫失败</Checkbox>
             </FormItem>
           </Col>
           <Col span="12">
@@ -67,7 +67,7 @@
         <Row>
           <Col span="6">
             <FormItem :label-width="100">
-              <Checkbox v-model="formData.withContinuousCall">按连续呼叫次数</Checkbox>
+              <Checkbox v-model="formData.withContinuousCall" :true-value="1" :false-value="0">按连续呼叫次数</Checkbox>
             </FormItem>
           </Col>
           <Col span="12">
@@ -80,7 +80,7 @@
         <Row>
           <Col span="6">
             <FormItem :label-width="100">
-              <Checkbox v-model="formData.withCumulativeCallTime">按累计通话时长</Checkbox>
+              <Checkbox v-model="formData.withCumulativeCallTime" :true-value="1" :false-value="0">按累计通话时长</Checkbox>
             </FormItem>
           </Col>
           <Col span="12">
@@ -95,7 +95,7 @@
         <Row>
           <Col span="6">
             <FormItem :label-width="100">
-              <Checkbox v-model="formData.withCumulativeCallCount">按累计通话次数</Checkbox>
+              <Checkbox v-model="formData.withCumulativeCallCount" :true-value="1" :false-value="0">按累计通话次数</Checkbox>
             </FormItem>
           </Col>
           <Col span="12">
@@ -151,14 +151,14 @@ export default {
         maxBaseStationCount: 4,
         minValidSign: -90,
         changeFrequency: 60,
-        baseStationBalance: false,
-        withContinuousCallFailure: false,
+        baseStationBalance: 0,
+        withContinuousCallFailure: 0,
         callFailureCount: 0,
-        withContinuousCall: false,
+        withContinuousCall: 0,
         continuousCallTimes: 0,
-        withCumulativeCallTime: false,
+        withCumulativeCallTime: 0,
         cumulativeCallTimes: 60,
-        withCumulativeCallCount: false,
+        withCumulativeCallCount: 0,
         cumulativeCallCount: 0
       },
       tableColumns: [

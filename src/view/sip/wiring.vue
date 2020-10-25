@@ -7,7 +7,7 @@
           <Col span="12">
             <FormItem label="多端口注册">
               <FormLabelTooltip slot="label" label="多端口注册" content="开启后，每个端口可分别注册到不同服务器，或者使用不同的本地端口，账号注册到同一服务器"/>
-              <i-switch v-model="formData.mutipleRegist" size="large">
+              <i-switch :true-value="1" :false-value="0" v-model="formData.mutipleRegist" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -20,7 +20,7 @@
             <FormItem label="只选择最优匹配路线">
               <FormLabelTooltip slot="label" label="只选择最优匹配路线" content="当配置了线路前缀时，服务器过来的通话只选最长直接前缀的端口出局，如无可用端口，则终止该通话"/>
 
-              <i-switch v-model="formData.onlyBestWiring" size="large">
+              <i-switch :true-value="1" :false-value="0" v-model="formData.onlyBestWiring" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -49,8 +49,8 @@ export default {
   data () {
     return {
       formData: {
-        mutipleRegist: false,
-        onlyBestWiring: false
+        mutipleRegist: 0,
+        onlyBestWiring: 0
       },
       tableConfig: {}
     }

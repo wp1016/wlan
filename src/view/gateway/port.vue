@@ -31,13 +31,13 @@
           </Col>
         </Row>
         <FormItem label="VoLTE">
-          <i-switch v-model="formData.volte" size="large">
+          <i-switch v-model="formData.volte" :true-value="1" :false-value="0" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
         </FormItem>
         <FormItem label="不规则卡支持">
-          <i-switch v-model="formData.irregularCardSupport" size="large">
+          <i-switch v-model="formData.irregularCardSupport" :true-value="1" :false-value="0" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
@@ -91,8 +91,8 @@ export default {
         frequencyBandSelect: 0,
         netWorkType: 0,
         registerType: 0,
-        volte: false,
-        irregularCardSupport: false
+        volte: 0,
+        irregularCardSupport: 0
       },
       bandOptions: genarateOptions(feqBandOptions),
       netTypeOptions: genarateOptions(netTypeOptions),

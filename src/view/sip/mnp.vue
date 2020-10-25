@@ -6,7 +6,7 @@
         <Row>
           <Col span="24">
             <FormItem label="MNP支持">
-              <i-switch v-model="formData.mnp" size="large">
+              <i-switch :true-value="1" :false-value="0" v-model="formData.mnp" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -104,7 +104,7 @@ export default {
     return {
       editIndex: -1,
       formData: {
-        mnp: false,
+        mnp: 0,
         portSort: '1',
         route: '1',
         serverUrl: '',

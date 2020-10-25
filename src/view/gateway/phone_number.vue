@@ -7,7 +7,7 @@
         <Row>
           <Col span="12">
             <FormItem label="号码存储">
-              <i-switch v-model="formData.simNumberStorage" size="large">
+              <i-switch v-model="formData.simNumberStorage" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -63,7 +63,7 @@
         <Row>
           <Col span="12">
              <FormItem label="副卡">
-               <i-switch v-model="formData.subCard" size="large">
+               <i-switch v-model="formData.subCard" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
                </i-switch>
@@ -122,7 +122,7 @@ export default {
   data () {
     return {
       formData: {
-        simNumberStorage: false,
+        simNumberStorage: 0,
         simNumberSource: 0,
         autoQueryNumber: [
           {
@@ -145,7 +145,7 @@ export default {
             dslot: ''
           }
         ],
-        subCard: false,
+        subCard: 0,
         subCardDialPrefix: '',
         subCardSmsRecvNum: '',
         subCardKeyword: '',

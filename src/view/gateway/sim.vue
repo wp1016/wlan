@@ -7,7 +7,7 @@
         <Row>
           <Col span="12">
             <FormItem label="立即挂机">
-              <i-switch v-model="formData.hangUpNow" size="large">
+              <i-switch v-model="formData.hangUpNow" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -31,7 +31,7 @@ export default {
   data () {
     return {
       formData: {
-        hangUpNow: false
+        hangUpNow: 0
       }
     }
   },

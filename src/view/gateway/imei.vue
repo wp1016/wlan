@@ -71,7 +71,7 @@
         <Row>
           <Col span="6">
             <FormItem label="当切换SIM卡时" :label-width="120">
-              <i-switch v-model="formData.whenChangeSimCard" size="large">
+              <i-switch v-model="formData.whenChangeSimCard" size="large" :true-value="1" :false-value="0">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -81,7 +81,7 @@
         <Row>
           <Col span="6">
             <FormItem label="连续呼叫失败" :label-width="120">
-              <Checkbox v-model="formData.continuousCallFailure">启用</Checkbox>
+              <Checkbox v-model="formData.continuousCallFailure" :true-value="1" :false-value="0">启用</Checkbox>
             </FormItem>
           </Col>
           <Col span="9">
@@ -93,7 +93,7 @@
         <Row>
           <Col span="6">
             <FormItem label="在线时长" :label-width="120">
-              <Checkbox v-model="formData.imeiOnlineDuration">启用</Checkbox>
+              <Checkbox v-model="formData.imeiOnlineDuration" :true-value="1" :false-value="0">启用</Checkbox>
             </FormItem>
           </Col>
           <Col span="9">
@@ -105,7 +105,7 @@
         <Row>
           <Col span="6">
             <FormItem label="呼叫数" :label-width="120">
-              <Checkbox v-model="formData.imeiCallNumbers">启用</Checkbox>
+              <Checkbox v-model="formData.imeiCallNumbers" :true-value="1" :false-value="0">启用</Checkbox>
             </FormItem>
           </Col>
           <Col span="9">
@@ -117,7 +117,7 @@
         <Row>
           <Col span="6">
             <FormItem label="通话数" :label-width="120">
-              <Checkbox v-model="formData.imeiConversationNum">启用</Checkbox>
+              <Checkbox v-model="formData.imeiConversationNum" :true-value="1" :false-value="0">启用</Checkbox>
             </FormItem>
           </Col>
           <Col span="9">
@@ -129,7 +129,7 @@
         <Row>
           <Col span="6">
             <FormItem label="呼叫时长" :label-width="120">
-              <Checkbox v-model="formData.imeiCallDuration">启用</Checkbox>
+              <Checkbox v-model="formData.imeiCallDuration" :true-value="1" :false-value="0">启用</Checkbox>
             </FormItem>
           </Col>
           <Col span="9">
@@ -190,16 +190,16 @@ export default {
     return {
       formData: {
         imeiRevise: 0,
-        whenChangeSimCard: false,
-        continuousCallFailure: false,
+        whenChangeSimCard: 0,
+        continuousCallFailure: 0,
         failedNum: 0,
-        imeiOnlineDuration: false,
+        imeiOnlineDuration: 0,
         onlineDuration: 0,
-        imeiCallNumbers: false,
+        imeiCallNumbers: 0,
         callNum: 0,
-        imeiConversationNum: false,
+        imeiConversationNum: 0,
         conversationNum: 0,
-        imeiCallDuration: false,
+        imeiCallDuration: 0,
         callDuration: 0,
         callMinUnit: 0,
         portImei: [{

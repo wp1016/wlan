@@ -6,7 +6,7 @@
         <Row>
           <Col span="12">
             <FormItem label="PIN解锁">
-              <i-switch v-model="formData.unlockPin" size="large">
+              <i-switch v-model="formData.unlockPin" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -52,7 +52,7 @@ export default {
   data () {
     return {
       formData: {
-        unlockPin: false
+        unlockPin: 0
       },
       tableColumns: [
         {

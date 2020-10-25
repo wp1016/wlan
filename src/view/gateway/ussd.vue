@@ -6,7 +6,7 @@
         <Row>
           <Col span="2">
             <FormItem :label-width="10">
-              <Checkbox v-model="formData.ussdAutoCycleSend[0].use">周期发送</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoCycleSend[0].use">周期发送</Checkbox>
             </FormItem>
           </Col>
           <Col span="6">
@@ -30,7 +30,7 @@
         <Row>
           <Col span="2">
             <FormItem :label-width="10">
-              <Checkbox v-model="formData.ussdAutoCallDuration[0].use">呼叫时长</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoCallDuration[0].use">呼叫时长</Checkbox>
             </FormItem>
           </Col>
           <Col span="6">
@@ -51,7 +51,7 @@
           </Col>
           <Col span="2">
             <FormItem :label-width="20">
-              <Checkbox v-model="formData.ussdAutoCallDuration[0].hangUp">强制挂机</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoCallDuration[0].hangUp">强制挂机</Checkbox>
             </FormItem>
           </Col>
         </Row>
@@ -59,7 +59,7 @@
         <Row>
           <Col span="2">
             <FormItem :label-width="10">
-              <Checkbox v-model="formData.ussdAutoTimingSend1[0].use">定时发送1</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend1[0].use">定时发送1</Checkbox>
             </FormItem>
           </Col>
           <Col span="6">
@@ -79,7 +79,7 @@
           </Col>
           <Col span="2">
             <FormItem :label-width="20">
-              <Checkbox v-model="formData.ussdAutoTimingSend1[0].hangUp">强制挂机</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend1[0].hangUp">强制挂机</Checkbox>
             </FormItem>
           </Col>
         </Row>
@@ -87,7 +87,7 @@
         <Row>
           <Col span="2">
             <FormItem :label-width="10">
-              <Checkbox v-model="formData.ussdAutoTimingSend2[0].use">定时发送2</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend2[0].use">定时发送2</Checkbox>
             </FormItem>
           </Col>
           <Col span="6">
@@ -107,7 +107,7 @@
           </Col>
           <Col span="2">
             <FormItem :label-width="20">
-              <Checkbox v-model="formData.ussdAutoTimingSend2[0].hangUp">强制挂机</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend2[0].hangUp">强制挂机</Checkbox>
             </FormItem>
           </Col>
         </Row>
@@ -115,7 +115,7 @@
         <Row>
           <Col span="2">
             <FormItem :label-width="10">
-              <Checkbox v-model="formData.ussdAutoTimingSend3[0].use">定时发送3</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend3[0].use">定时发送3</Checkbox>
             </FormItem>
           </Col>
           <Col span="6">
@@ -135,7 +135,7 @@
           </Col>
           <Col span="2">
             <FormItem :label-width="20">
-              <Checkbox v-model="formData.ussdAutoTimingSend3[0].hangUp">强制挂机</Checkbox>
+              <Checkbox :true-value="1" :false-value="0" v-model="formData.ussdAutoTimingSend3[0].hangUp">强制挂机</Checkbox>
             </FormItem>
           </Col>
         </Row>
@@ -189,7 +189,7 @@ export default {
       formData: {
         ussdAutoCycleSend: [
           {
-            use: false,
+            use: 0,
             minMinutes: 0,
             maxMinutes: 0,
             ussdCmd: ''
@@ -197,44 +197,44 @@ export default {
         ],
         ussdAutoCallDuration: [
           {
-            use: false,
+            use: 0,
             durationMinute: 0,
             billingCycle: 0,
             ussdCmd: '',
-            hangUp: false
+            hangUp: 0
           }
         ],
         ussdAutoTimingSend1: [
           {
-            use: false,
+            use: 0,
             startTime: '',
             endTime: '',
             ussdCmd: '',
-            hangUp: false
+            hangUp: 0
           }
         ],
         ussdAutoTimingSend2: [
           {
-            use: false,
+            use: 0,
             startTime: '',
             endTime: '',
             ussdCmd: '',
-            hangUp: false
+            hangUp: 0
           }
         ],
         ussdAutoTimingSend3: [
           {
-            use: false,
+            use: 0,
             startTime: '',
             endTime: '',
             ussdCmd: '',
-            hangUp: false
+            hangUp: 0
           }
         ],
         ussdCmd: [
           {
             cmd: '',
-            sendCmd: false,
+            sendCmd: 0,
             port: ''
           }
         ],

@@ -79,7 +79,7 @@
               <FormItem label="电话号码注册">
                 <FormLabelTooltip slot="label" label="电话号码注册" content="SIP账号ID和名称不一致时，启用该选项，一般情况下请保持禁用"/>
 
-                <i-switch v-model="formData.signInByPhone" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.signInByPhone" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -91,7 +91,7 @@
               <FormItem label="接受所有呼叫">
                 <FormLabelTooltip slot="label" label="接受所有呼叫" content="启用后，设备将接受来自任何IP(同一局域网下或二者均具有公网IP)的电话量主要用于局域网下测试线路状态，一般情况下请保持禁用，设备暴露在公网若开启此按钮容易造成盗打"/>
 
-                <i-switch v-model="formData.allowAllIncomingCall" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.allowAllIncomingCall" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -103,7 +103,7 @@
               <FormItem label="去除账号前缀">
                 <FormLabelTooltip slot="label" label="去除账号前缀" content="启用后，将取出被叫号码中包含的账号前缀，一般情况下请保持禁用"/>
 
-                <i-switch v-model="formData.removePrefix" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.removePrefix" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -113,7 +113,7 @@
 
             <Col span="24">
               <FormItem label="自动回复183">
-                <i-switch v-model="formData.autoReply" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.autoReply" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -125,7 +125,7 @@
               <FormItem label="根据主叫选线">
                 <FormLabelTooltip slot="label" label="根据主叫选线" content="启用后，只接受主叫（From头域）和注册账号匹配的呼叫，网关各个通道可通过设置电话号码与SIP分机绑定，各通道只接受填在电话号码框的SIP分机的电话量，请慎重使用此功能，无需使用请保持禁止"/>
 
-                <i-switch v-model="formData.chooseChannelWithMainCall" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.chooseChannelWithMainCall" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -134,7 +134,7 @@
 
             <Col span="12">
               <FormItem label="允许其他主叫">
-                <i-switch v-model="formData.allowOtherMainCall" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.allowOtherMainCall" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -171,7 +171,7 @@
               <FormItem label="上报线路容量">
                 <FormLabelTooltip slot="label" label="上报线路容量" content="此功能仅支持VOS 2.1.6.00（VOS2009,VOS3000）及以上版本"/>
 
-                <i-switch v-model="formData.reportChannelCapacity" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.reportChannelCapacity" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -209,7 +209,7 @@
           <Row>
             <Col span="12">
               <FormItem label="演示应答信号">
-                <i-switch v-model="formData.delayedResponseSignal" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.delayedResponseSignal" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -226,7 +226,7 @@
 
             <Col span="24">
               <FormItem label="忽略无振铃应答">
-                <i-switch v-model="formData.ignoreNoRingingResponse" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.ignoreNoRingingResponse" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -235,7 +235,7 @@
 
             <Col span="24">
               <FormItem label="忽略contact">
-                <i-switch v-model="formData.ignoreContact" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.ignoreContact" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -244,7 +244,7 @@
 
             <Col span="24">
               <FormItem label="忽略RTP源地址">
-                <i-switch v-model="formData.ignoreRTPSource" size="large">
+                <i-switch :true-value="1" :false-value="0" v-model="formData.ignoreRTPSource" size="large">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>
@@ -313,21 +313,21 @@ export default {
         standbyProxyPort: '5060',
         localPort: '5060',
         registTime: 180,
-        signInByPhone: false,
-        allowAllIncomingCall: false,
-        removePrefix: true,
-        autoReply: true,
-        chooseChannelWithMainCall: false,
-        allowOtherMainCall: false,
+        signInByPhone: 0,
+        allowAllIncomingCall: 0,
+        removePrefix: 1,
+        autoReply: 1,
+        chooseChannelWithMainCall: 0,
+        allowOtherMainCall: 0,
         channelMode: '1',
-        reportChannelCapacity: false,
+        reportChannelCapacity: 0,
         failResponseCode: '503',
         ua: '',
-        delayedResponseSignal: false,
+        delayedResponseSignal: 0,
         delayTime: 0,
-        ignoreNoRingingResponse: false,
-        ignoreContact: false,
-        ignoreRTPSource: false,
+        ignoreNoRingingResponse: 0,
+        ignoreContact: 0,
+        ignoreRTPSource: 0,
         contactType: '1',
         contactAddress: '',
         sourceOfCalledNumber: '1'

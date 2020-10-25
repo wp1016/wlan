@@ -8,7 +8,7 @@
             <FormItem label="模拟计费">
               <FormLabelTooltip slot="label" label="模拟计费" content="一正模拟计费系统，计费原理如下：自定义一个费率，设备首先通过选择的查询方法获取SIM卡余额，通话没经过一个计费周期，设备将会按照费率扣余额，但是在计费过程中余额会产生一定的误差，当余额到达警戒值时，设备将自动发送USSD或短信来重新获取余额，以此来校准产生的误差。当余额低于无效值时，SIM卡将会变为黄色，不能再使用"/>
 
-              <i-switch v-model="formData.analogBilling" size="large">
+              <i-switch v-model="formData.analogBilling" :true-value="1" :false-value="0" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -18,7 +18,7 @@
         <FormItem label="无余额时挂机">
           <FormLabelTooltip slot="label" label="无余额时挂机" content="计费过程中，若余额达到无效值，是否强制挂机"/>
 
-          <i-switch v-model="formData.noBalanceHangUp" size="large">
+          <i-switch v-model="formData.noBalanceHangUp" :true-value="1" :false-value="0" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
@@ -53,7 +53,7 @@
               <p><strong>启用：</strong>当卡为余额不足卡时，会查询余额，需要开启模拟计费</p>
             </div>
           </FormLabelTooltip>
-          <i-switch v-model="formData.queryBalanceInsufficientCd" size="large">
+          <i-switch v-model="formData.queryBalanceInsufficientCd" :true-value="1" :false-value="0" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
@@ -66,7 +66,7 @@
               <p><strong>禁用：</strong>查询余额失败，余额显示N/A，状态显示余额不足</p>
             </div>
           </FormLabelTooltip>
-          <i-switch v-model="formData.queryBalanceInsufficientCd" size="large">
+          <i-switch v-model="formData.useLastBalance" :true-value="1" :false-value="0" size="large">
             <span slot="open">启用</span>
             <span slot="close">禁用</span>
           </i-switch>
@@ -75,7 +75,7 @@
         <Row>
           <Col span="7">
             <FormItem :label-width="100">
-              <Checkbox v-model="formData.balanceWaringSendSms[0].use">当余额告警时发送短信到</Checkbox>
+              <Checkbox v-model="formData.balanceWaringSendSms[0].use" :true-value="1" :false-value="0">当余额告警时发送短信到</Checkbox>
             </FormItem>
           </Col>
           <Col span="12">
@@ -134,15 +134,15 @@ export default {
     return {
       editIndex: -1,
       formData: {
-        analogBilling: false,
-        noBalanceHangUp: false,
+        analogBilling: 0,
+        noBalanceHangUp: 0,
         operatorsSource: 0,
         cycleQueryBalance: 0,
-        queryBalanceInsufficientCd: false,
-        useLastBalance: false,
+        queryBalanceInsufficientCd: 0,
+        useLastBalance: 0,
         balanceWaringSendSms: [
           {
-            use: false,
+            use: 0,
             destNum: ''
           }
         ],

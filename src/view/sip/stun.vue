@@ -6,7 +6,7 @@
         <Row>
           <Col span="24">
             <FormItem label="STUN支持">
-              <i-switch v-model="formData.stun" size="large">
+              <i-switch :true-value="1" :false-value="0" v-model="formData.stun" size="large">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -55,7 +55,7 @@ export default {
   data () {
     return {
       formData: {
-        stun: false,
+        stun: 0,
         stunServer: '',
         stunServerPort: ''
       }
