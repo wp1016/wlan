@@ -41,12 +41,12 @@ const GatewayGprs = () => import('@/view/gateway/gprs.vue')
 const GatewayOCDL = () => import('@/view/gateway/outcall_duration_limit.vue')
 const GatewayOCTL = () => import('@/view/gateway/outcall_times_limit.vue')
 const GatewayCTL = () => import('@/view/gateway/call_times_limit.vue')
-const GatewayOCFL = () => import('@/view/gateway/outcall_freq_limit.vue')
+// const GatewayOCFL = () => import('@/view/gateway/outcall_freq_limit.vue')
 
 const MessagePort = () => import('@/view/message/port.vue')
 const MessageSend = () => import('@/view/message/send.vue')
 const MessageRecieve = () => import('@/view/message/receive.vue')
-const MessageTransmit = () => import('@/view/message/transmit.vue')
+// const MessageTransmit = () => import('@/view/message/transmit.vue')
 const MessageSendEach = () => import('@/view/message/sendEach.vue')
 const MessageControl = () => import('@/view/message/control.vue')
 const MessageSmpp = () => import('@/view/message/smpp.vue')
@@ -329,16 +329,16 @@ export default [
           icon: 'ios-book'
         },
         component: GatewayCTL
-      },
-      {
-        path: 'ocfl',
-        name: 'outcall_freq_limit',
-        meta: {
-          title: '呼叫频率限制',
-          icon: 'ios-book'
-        },
-        component: GatewayOCFL
       }
+      // {
+      //   path: 'ocfl',
+      //   name: 'outcall_freq_limit',
+      //   meta: {
+      //     title: '呼叫频率限制',
+      //     icon: 'ios-book'
+      //   },
+      //   component: GatewayOCFL
+      // }
     ]
   },
   {
@@ -352,7 +352,7 @@ export default [
     children: [
       {
         path: 'port',
-        name: 'port_setting',
+        name: 'sms_port_setting',
         meta: {
           title: '端口设置',
           icon: 'ios-book'
@@ -377,15 +377,15 @@ export default [
         },
         component: MessageRecieve
       },
-      {
-        path: 'transmit',
-        name: 'message_transmit',
-        meta: {
-          title: '短信转发',
-          icon: 'ios-book'
-        },
-        component: MessageTransmit
-      },
+      // {
+      //   path: 'transmit',
+      //   name: 'message_transmit',
+      //   meta: {
+      //     title: '短信转发',
+      //     icon: 'ios-book'
+      //   },
+      //   component: MessageTransmit
+      // },
       {
         path: 'send_each',
         name: 'message_send_each',

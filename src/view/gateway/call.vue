@@ -201,7 +201,6 @@
             </Row>
           </div>
 
-
           <FormItem style="margin-top:15px;">
             <Button type="primary" @click="join">加组</Button>
             <Button @click="quit" style="margin-left: 8px">退组</Button>
@@ -492,7 +491,7 @@ export default {
   methods: {
     handleSubmit () {},
     handleCancel () {},
-    selectSlot (cardSlot,port) {
+    selectSlot (cardSlot, port) {
       let selectedRowIndex = this.formData.portGroupMutualHit.findIndex(item => item.port === port)
       if (cardSlot.length === 4) {
         this.formData.portGroupMutualHit[selectedRowIndex].portSelected = true
@@ -513,7 +512,7 @@ export default {
         this.formData.portGroupMutualHit[selectedRowIndex].cardSlot = []
       } else {
         this.formData.portGroupMutualHit[selectedRowIndex].portSelected = !portSelected
-        this.formData.portGroupMutualHit[selectedRowIndex].cardSlot = !portSelected ? [0,1,2,3] : []
+        this.formData.portGroupMutualHit[selectedRowIndex].cardSlot = !portSelected ? [0, 1, 2, 3] : []
       }
       this.formData.portGroupMutualHit[selectedRowIndex].indeterminate = false
     },

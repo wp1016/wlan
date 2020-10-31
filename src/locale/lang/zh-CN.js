@@ -10,6 +10,7 @@ export default {
   mnp_setting: 'MNP设置',
   gateway: '网关设置',
   port_setting: '端口设置',
+  sms_port_setting: '端口设置',
   bsc_setting: '基站设置',
   imei_setting: 'IMEI设置',
   pin_setting: 'PIN设置',

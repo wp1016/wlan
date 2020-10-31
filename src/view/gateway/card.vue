@@ -882,7 +882,6 @@
 
         <Divider/>
 
-
         <FormItem label="按累计发送短信数">
           <i-switch size="large" v-model="formData.cumulatSendSmsNumLockCard[0].use" :true-value="1" :false-value="0">
             <span slot="open">启用</span>
@@ -919,7 +918,6 @@
             </Col>
           </Row>
 
-
           <Row>
             <Col span="12">
               <FormItem label="累计发送短信数">
@@ -942,7 +940,6 @@
         </template>
 
         <Divider/>
-
 
         <FormItem label="按累计发送短信失败数">
           <i-switch size="large" v-model="formData.sendSmsFailedNumLockCard[0].use" :true-value="1" :false-value="0">
@@ -979,7 +976,6 @@
               <span class="form-tips">*切换前发送USSD查询命令</span>
             </Col>
           </Row>
-
 
           <Row>
             <Col span="12">
@@ -1040,7 +1036,6 @@
             </Col>
           </Row>
 
-
           <Row>
             <Col span="12">
               <FormItem label="连续发送短信失败数">
@@ -1099,7 +1094,6 @@
               <span class="form-tips">*切换前发送USSD查询命令</span>
             </Col>
           </Row>
-
 
           <Row>
             <Col span="12">
@@ -1160,7 +1154,6 @@
             </Col>
           </Row>
 
-
           <Row>
             <Col span="12">
               <FormItem label="累计未送达短信条数">
@@ -1219,7 +1212,6 @@
               <span class="form-tips">*切换前发送USSD查询命令</span>
             </Col>
           </Row>
-
 
           <Row>
             <Col span="12">
@@ -1307,7 +1299,6 @@
               <span class="form-tips">*如果启用，只会锁卡不会切卡</span>
             </Col>
           </Row>
-
 
           <Row>
             <Col span="12">

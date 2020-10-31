@@ -130,7 +130,15 @@
         </Card>
 
         <Card class="card-content" title="呼叫时长统计">
-
+          <p slot="title">
+            <Tooltip  transfer placement="top" max-width="350">
+              呼叫时长统计<Icon type="ios-information-circle-outline" size="12" color="#2d8cf0"/>
+              <p slot="content">
+                红色<span style="color: #f00">N/A</span>：读取数据错误
+              </p>
+            </Tooltip>
+            <Table :columns="tableColumns" :data="formData.callDurationStatistics"></Table>
+          </p>
         </Card>
       </Form>
   </div>
@@ -160,9 +168,48 @@ export default {
         displayUnit: 60,
         timError: 0,
         hangUpNow: 0,
-        callDurationStatistics: []
+        callDurationStatistics: [
+          {
+            port: '1A',
+            status: 'IDLE',
+            cumulCall_Remain: '',
+            dayCall_Remain: '',
+            monthCall_Remain: ''
+          }
+        ]
       },
-      callDurationDataSourceOptions: genarateOptions(callDurationDataSourceOptions)
+      callDurationDataSourceOptions: genarateOptions(callDurationDataSourceOptions),
+      tableColumns: [
+        {
+          type: 'selection',
+          width: 60
+        },
+        {
+          key: 'port',
+          title: '端口'
+        },
+        {
+          key: 'status',
+          title: '状态'
+        },
+        {
+          key: 'cumulCall',
+          title: '累计通话/累计剩余'
+        },
+        {
+          key: 'dayCall_Remain',
+          title: '当日通话/当日剩余'
+        },
+        {
+          key: 'monthCall_Remain',
+          title: '当月通话/当月剩余'
+        },
+        {
+          key: 'operation',
+          title: '操作',
+          slot: 'operation'
+        }
+      ]
     }
   },
   methods: {

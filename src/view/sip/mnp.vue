@@ -2,7 +2,7 @@
   <div class="page-content">
     <h1 class="page-title">线路设置</h1>
     <Card class="card-content" title="MNP">
-      <Form v-model="formData" :label-width="180">
+      <Form :model="formData" :label-width="180">
         <Row>
           <Col span="24">
             <FormItem label="MNP支持">
@@ -83,7 +83,6 @@
 
         </template>
 
-
         <FormItem>
           <Button type="primary" @click="handleSubmit">确定</Button>
           <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
@@ -148,9 +147,9 @@ export default {
     }
   },
   methods: {
-    handleSubmit() {},
-    handleCancel() {},
-  },
+    handleSubmit () {},
+    handleCancel () {}
+  }
 }
 </script>
 
