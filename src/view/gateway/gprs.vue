@@ -112,7 +112,6 @@ export default {
   },
   methods: {
     add () {
-      console.log(this.formData.flowTimSharingStrategy)
       this.formData.flowTimSharingStrategy.push({
         start: 0,
         end: 24,

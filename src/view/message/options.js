@@ -13,3 +13,9 @@ export const eimsServerLinkOptions = {
   0: 'UDP',
   1: 'TCP'
 }
+
+export const prefixOptions = {
+  0: '禁用',
+  1: '运营商前缀',
+  2: '端口前缀'
+}

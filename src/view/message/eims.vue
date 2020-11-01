@@ -61,6 +61,11 @@
               </FormItem>
             </Col>
           </Row>
+          <FormItem style="margin-top: 15px;">
+            <Button type="primary" @click="handleSubmit">确定</Button>
+            <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
+          </FormItem>
+
         </template>
 
       </Card>
@@ -93,6 +98,10 @@ export default {
       serverTypeOptions: genarateOptions(eimsServerTypeOptions),
       linkTypeOptions: genarateOptions(eimsServerLinkOptions)
     }
+  },
+  methods: {
+    handleSubmit () {},
+    handleCancel () {}
   }
 }
 </script>

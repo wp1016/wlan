@@ -52,26 +52,26 @@ const MessageControl = () => import('@/view/message/control.vue')
 const MessageSmpp = () => import('@/view/message/smpp.vue')
 const MessageEims = () => import('@/view/message/eims.vue')
 const MessagePrefix = () => import('@/view/message/prefix.vue')
-const MessageFilter = () => import('@/view/message/filter.vue')
-const MessageMMs = () => import('@/view/message/mms.vue')
+// const MessageFilter = () => import('@/view/message/filter.vue')
+// const MessageMMs = () => import('@/view/message/mms.vue')
 
-const ApplicationTelDir = () => import('@/view/application/telephone_directory.vue')
-const ApplicationDialingRules = () => import('@/view/application/dialing_rules.vue')
-const ApplicationExchange = () => import('@/view/application/exchange.vue')
-const ApplicationInBlack = () => import('@/view/application/incoming_black.vue')
-const ApplicationInWhite = () => import('@/view/application/incoming_white.vue')
-const ApplicationChangeOnline = () => import('@/view/application/change_card_online.vue')
-const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
-const ApplicationStatusReport = () => import('@/view/application/status_report.vue')
+// const ApplicationTelDir = () => import('@/view/application/telephone_directory.vue')
+// const ApplicationDialingRules = () => import('@/view/application/dialing_rules.vue')
+// const ApplicationExchange = () => import('@/view/application/exchange.vue')
+// const ApplicationInBlack = () => import('@/view/application/incoming_black.vue')
+// const ApplicationInWhite = () => import('@/view/application/incoming_white.vue')
+// const ApplicationChangeOnline = () => import('@/view/application/change_card_online.vue')
+// const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
+// const ApplicationStatusReport = () => import('@/view/application/status_report.vue')
 
 const AdvancedInternet = () => import('@/view/advanced/internet.vue')
-const AdvancedPort = () => import('@/view/advanced/port.vue')
+// const AdvancedPort = () => import('@/view/advanced/port.vue')
 const AdvancedEncode = () => import('@/view/advanced/encode.vue')
-const AdvancedLed = () => import('@/view/advanced/led.vue')
-const AdvancedCallback = () => import('@/view/advanced/callback.vue')
-const AdvancedWait = () => import('@/view/advanced/call_waiting.vue')
-const AdvancedMediaRecord = () => import('@/view/advanced/media_record.vue')
-const AdvancedOtherSetting = () => import('@/view/advanced/other_setting.vue')
+// const AdvancedLed = () => import('@/view/advanced/led.vue')
+// const AdvancedCallback = () => import('@/view/advanced/callback.vue')
+// const AdvancedWait = () => import('@/view/advanced/call_waiting.vue')
+// const AdvancedMediaRecord = () => import('@/view/advanced/media_record.vue')
+// const AdvancedOtherSetting = () => import('@/view/advanced/other_setting.vue')
 
 const SystemUser = () => import('@/view/system/user.vue')
 const SystemRole = () => import('@/view/system/role.vue')
@@ -82,16 +82,16 @@ const SystemTest = () => import('@/view/system/test.vue')
 const SystemMonitor = () => import('@/view/system/monitor.vue')
 const SystemWarning = () => import('@/view/system/warning.vue')
 
-const PortStatus = () => import('@/view/status/port.vue')
-const CallStatus = () => import('@/view/status/call_status.vue')
-const SystemStatus = () => import('@/view/status/system.vue')
-const CallStatistics = () => import('@/view/status/call_statistics.vue')
-const CallEachStatistics = () => import('@/view/status/call_each_statistics.vue')
-const MediaStatistics = () => import('@/view/status/media_statistics.vue')
-const MessageStatistics = () => import('@/view/status/message_statistics.vue')
-const GprsStatistics = () => import('@/view/status/gprs_statistics.vue')
-const Cdr = () => import('@/view/status/cdr.vue')
-const Sms = () => import('@/view/status/sms.vue')
+// const PortStatus = () => import('@/view/status/port.vue')
+// const CallStatus = () => import('@/view/status/call_status.vue')
+// const SystemStatus = () => import('@/view/status/system.vue')
+// const CallStatistics = () => import('@/view/status/call_statistics.vue')
+// const CallEachStatistics = () => import('@/view/status/call_each_statistics.vue')
+// const MediaStatistics = () => import('@/view/status/media_statistics.vue')
+// const MessageStatistics = () => import('@/view/status/message_statistics.vue')
+// const GprsStatistics = () => import('@/view/status/gprs_statistics.vue')
+// const Cdr = () => import('@/view/status/cdr.vue')
+// const Sms = () => import('@/view/status/sms.vue')
 
 const Save = () => import('@/view/save/save.vue')
 
@@ -430,111 +430,111 @@ export default [
           icon: 'ios-book'
         },
         component: MessagePrefix
-      },
-      {
-        path: 'filter',
-        name: 'message_filter',
-        meta: {
-          title: '短信过滤',
-          icon: 'ios-book'
-        },
-        component: MessageFilter
-      },
-      {
-        path: 'mms',
-        name: 'mms_config',
-        meta: {
-          title: '彩信配置',
-          icon: 'ios-book'
-        },
-        component: MessageMMs
       }
+      // {
+      //   path: 'filter',
+      //   name: 'message_filter',
+      //   meta: {
+      //     title: '短信过滤',
+      //     icon: 'ios-book'
+      //   },
+      //   component: MessageFilter
+      // },
+      // {
+      //   path: 'mms',
+      //   name: 'mms_config',
+      //   meta: {
+      //     title: '彩信配置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: MessageMMs
+      // }
 
     ]
   },
-  {
-    path: '/application',
-    name: 'application_setting',
-    component: Main,
-    meta: {
-      title: '应用设置',
-      icon: 'md-home'
-    },
-    children: [
-      {
-        path: 'tel_dir',
-        name: 'telephone_directory',
-        meta: {
-          title: '电话簿',
-          icon: 'ios-book'
-        },
-        component: ApplicationTelDir
-      },
-      {
-        path: 'rule',
-        name: 'dialing_rules',
-        meta: {
-          title: '拨号规则',
-          icon: 'ios-book'
-        },
-        component: ApplicationDialingRules
-      },
-      {
-        path: 'exchange',
-        name: 'exchange_setting',
-        meta: {
-          title: '替换设置',
-          icon: 'ios-book'
-        },
-        component: ApplicationExchange
-      },
-      {
-        path: 'in_black',
-        name: 'incoming_black_list',
-        meta: {
-          title: '呼入黑名单',
-          icon: 'ios-book'
-        },
-        component: ApplicationInBlack
-      },
-      {
-        path: 'in_white',
-        name: 'incoming_white_list',
-        meta: {
-          title: '呼入白名单',
-          icon: 'ios-book'
-        },
-        component: ApplicationInWhite
-      },
-      {
-        path: 'change_online',
-        name: 'change_card_online',
-        meta: {
-          title: '远程换卡',
-          icon: 'ios-book'
-        },
-        component: ApplicationChangeOnline
-      },
-      {
-        path: 'auto',
-        name: 'auto_charge',
-        meta: {
-          title: '自动充值',
-          icon: 'ios-book'
-        },
-        component: ApplicationAutoCharge
-      },
-      {
-        path: 'report',
-        name: 'status_report',
-        meta: {
-          title: '状态报告',
-          icon: 'ios-book'
-        },
-        component: ApplicationStatusReport
-      }
-    ]
-  },
+  // {
+  //   path: '/application',
+  //   name: 'application_setting',
+  //   component: Main,
+  //   meta: {
+  //     title: '应用设置',
+  //     icon: 'md-home'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'tel_dir',
+  //       name: 'telephone_directory',
+  //       meta: {
+  //         title: '电话簿',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationTelDir
+  //     },
+  //     {
+  //       path: 'rule',
+  //       name: 'dialing_rules',
+  //       meta: {
+  //         title: '拨号规则',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationDialingRules
+  //     },
+  //     {
+  //       path: 'exchange',
+  //       name: 'exchange_setting',
+  //       meta: {
+  //         title: '替换设置',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationExchange
+  //     },
+  //     {
+  //       path: 'in_black',
+  //       name: 'incoming_black_list',
+  //       meta: {
+  //         title: '呼入黑名单',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationInBlack
+  //     },
+  //     {
+  //       path: 'in_white',
+  //       name: 'incoming_white_list',
+  //       meta: {
+  //         title: '呼入白名单',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationInWhite
+  //     },
+  //     {
+  //       path: 'change_online',
+  //       name: 'change_card_online',
+  //       meta: {
+  //         title: '远程换卡',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationChangeOnline
+  //     },
+  //     {
+  //       path: 'auto',
+  //       name: 'auto_charge',
+  //       meta: {
+  //         title: '自动充值',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationAutoCharge
+  //     },
+  //     {
+  //       path: 'report',
+  //       name: 'status_report',
+  //       meta: {
+  //         title: '状态报告',
+  //         icon: 'ios-book'
+  //       },
+  //       component: ApplicationStatusReport
+  //     }
+  //   ]
+  // },
   {
     path: '/advanced',
     name: 'advanced_setup',
@@ -553,15 +553,15 @@ export default [
         },
         component: AdvancedInternet
       },
-      {
-        path: 'port',
-        name: 'port_setting',
-        meta: {
-          title: '端口设置',
-          icon: 'ios-book'
-        },
-        component: AdvancedPort
-      },
+      // {
+      //   path: 'port',
+      //   name: 'port_setting',
+      //   meta: {
+      //     title: '端口设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedPort
+      // },
       {
         path: 'encode',
         name: 'encode_select',
@@ -570,52 +570,52 @@ export default [
           icon: 'ios-book'
         },
         component: AdvancedEncode
-      },
-      {
-        path: 'led',
-        name: 'led_setting',
-        meta: {
-          title: 'LED设置',
-          icon: 'ios-book'
-        },
-        component: AdvancedLed
-      },
-      {
-        path: 'callback',
-        name: 'callback_setting',
-        meta: {
-          title: '回拨设置',
-          icon: 'ios-book'
-        },
-        component: AdvancedCallback
-      },
-      {
-        path: 'wait',
-        name: 'call_waiting',
-        meta: {
-          title: '呼叫等待',
-          icon: 'ios-book'
-        },
-        component: AdvancedWait
-      },
-      {
-        path: 'media',
-        name: 'media_record',
-        meta: {
-          title: '媒体记录',
-          icon: 'ios-book'
-        },
-        component: AdvancedMediaRecord
-      },
-      {
-        path: 'other',
-        name: 'other_setting',
-        meta: {
-          title: '其他设置',
-          icon: 'ios-book'
-        },
-        component: AdvancedOtherSetting
       }
+      // {
+      //   path: 'led',
+      //   name: 'led_setting',
+      //   meta: {
+      //     title: 'LED设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedLed
+      // },
+      // {
+      //   path: 'callback',
+      //   name: 'callback_setting',
+      //   meta: {
+      //     title: '回拨设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedCallback
+      // },
+      // {
+      //   path: 'wait',
+      //   name: 'call_waiting',
+      //   meta: {
+      //     title: '呼叫等待',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedWait
+      // },
+      // {
+      //   path: 'media',
+      //   name: 'media_record',
+      //   meta: {
+      //     title: '媒体记录',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedMediaRecord
+      // },
+      // {
+      //   path: 'other',
+      //   name: 'other_setting',
+      //   meta: {
+      //     title: '其他设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: AdvancedOtherSetting
+      // }
     ]
   },
   {
@@ -701,107 +701,107 @@ export default [
       }
     ]
   },
-  {
-    path: '/status',
-    name: 'runtime_status',
-    component: Main,
-    meta: {
-      title: '运行状态',
-      icon: 'md-home'
-    },
-    children: [
-      {
-        path: 'port',
-        name: 'port_status',
-        meta: {
-          title: '端口状态',
-          icon: 'ios-book'
-        },
-        component: PortStatus
-      },
-      {
-        path: 'call',
-        name: 'call_status',
-        meta: {
-          title: '呼叫状态',
-          icon: 'ios-book'
-        },
-        component: CallStatus
-      },
-      {
-        path: 'system',
-        name: 'system_status',
-        meta: {
-          title: '系统状态',
-          icon: 'ios-book'
-        },
-        component: SystemStatus
-      },
-      {
-        path: 'call_statistics',
-        name: 'call_statistics',
-        meta: {
-          title: '呼叫统计',
-          icon: 'ios-book'
-        },
-        component: CallStatistics
-      },
-      {
-        path: 'call_each_statistics',
-        name: 'call_each_statistics',
-        meta: {
-          title: '互打统计',
-          icon: 'ios-book'
-        },
-        component: CallEachStatistics
-      },
-      {
-        path: 'media',
-        name: 'media_statistics',
-        meta: {
-          title: '媒体统计',
-          icon: 'ios-book'
-        },
-        component: MediaStatistics
-      },
-      {
-        path: 'message',
-        name: 'message_statistics',
-        meta: {
-          title: '短信统计',
-          icon: 'ios-book'
-        },
-        component: MessageStatistics
-      },
-      {
-        path: 'gprs',
-        name: 'gprs_statistics',
-        meta: {
-          title: '流量统计',
-          icon: 'ios-book'
-        },
-        component: GprsStatistics
-      },
-      {
-        path: 'cdr',
-        name: 'crd_search',
-        meta: {
-          title: 'CDR查询',
-          icon: 'ios-book'
-        },
-        component: Cdr
-      },
-      {
-        path: 'sms',
-        name: 'sms_search',
-        meta: {
-          title: 'SMS查询',
-          icon: 'ios-book'
-        },
-        component: Sms
-      }
-    ]
-  },
+  // {
+  //   path: '/status',
+  //   name: 'runtime_status',
+  //   component: Main,
+  //   meta: {
+  //     title: '运行状态',
+  //     icon: 'md-home'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'port',
+  //       name: 'port_status',
+  //       meta: {
+  //         title: '端口状态',
+  //         icon: 'ios-book'
+  //       },
+  //       component: PortStatus
+  //     },
+  //     {
+  //       path: 'call',
+  //       name: 'call_status',
+  //       meta: {
+  //         title: '呼叫状态',
+  //         icon: 'ios-book'
+  //       },
+  //       component: CallStatus
+  //     },
+  //     {
+  //       path: 'system',
+  //       name: 'system_status',
+  //       meta: {
+  //         title: '系统状态',
+  //         icon: 'ios-book'
+  //       },
+  //       component: SystemStatus
+  //     },
+  //     {
+  //       path: 'call_statistics',
+  //       name: 'call_statistics',
+  //       meta: {
+  //         title: '呼叫统计',
+  //         icon: 'ios-book'
+  //       },
+  //       component: CallStatistics
+  //     },
+  //     {
+  //       path: 'call_each_statistics',
+  //       name: 'call_each_statistics',
+  //       meta: {
+  //         title: '互打统计',
+  //         icon: 'ios-book'
+  //       },
+  //       component: CallEachStatistics
+  //     },
+  //     {
+  //       path: 'media',
+  //       name: 'media_statistics',
+  //       meta: {
+  //         title: '媒体统计',
+  //         icon: 'ios-book'
+  //       },
+  //       component: MediaStatistics
+  //     },
+  //     {
+  //       path: 'message',
+  //       name: 'message_statistics',
+  //       meta: {
+  //         title: '短信统计',
+  //         icon: 'ios-book'
+  //       },
+  //       component: MessageStatistics
+  //     },
+  //     {
+  //       path: 'gprs',
+  //       name: 'gprs_statistics',
+  //       meta: {
+  //         title: '流量统计',
+  //         icon: 'ios-book'
+  //       },
+  //       component: GprsStatistics
+  //     },
+  //     {
+  //       path: 'cdr',
+  //       name: 'crd_search',
+  //       meta: {
+  //         title: 'CDR查询',
+  //         icon: 'ios-book'
+  //       },
+  //       component: Cdr
+  //     },
+  //     {
+  //       path: 'sms',
+  //       name: 'sms_search',
+  //       meta: {
+  //         title: 'SMS查询',
+  //         icon: 'ios-book'
+  //       },
+  //       component: Sms
+  //     }
+  //   ]
+  // },
   {
     path: '/save',
     name: 'save',
