@@ -114,7 +114,7 @@
                       <p><strong>禁用：</strong>达到最大呼叫时长时不会立即挂机，直到最后一通电话结束后才锁定SIM卡</p>
                     </template>
                   </FormLabelTooltip>
-                  <i-switch v-model="formData.hangUpNow">
+                  <i-switch size="large" v-model="formData.hangUpNow" :true-value="1" :false-value="0">
                     <span slot="open">启用</span>
                     <span slot="close">禁用</span>
                   </i-switch>

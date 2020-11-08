@@ -109,8 +109,7 @@ export default {
       'closeTag'
     ]),
     ...mapActions([
-      'handleLogin',
-      'getUnreadMessageCount'
+      'handleLogin'
     ]),
     turnToPage (route) {
       let { name, params, query } = {}
@@ -124,7 +123,7 @@ export default {
         window.open(name.split('_')[1])
         return
       }
-      console.log(route);
+      console.log(route)
       this.$router.push({
         name,
         params,
@@ -182,7 +181,6 @@ export default {
       })
     }
     // 获取未读消息条数
-    this.getUnreadMessageCount()
   }
 }
 </script>

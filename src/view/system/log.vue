@@ -1,17 +1,15 @@
 <template>
   <div class="page-content">
-    <h1 class="page-title">角色管理</h1>
+    <h1 class="page-title">日志管理</h1>
     <Form :model="formData" :label-width="180">
-      <Card class="card-content" title="角色列表">
 
-      </Card>
     </Form>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'role',
+  name: 'log',
   data () {
     return {
       formData: {

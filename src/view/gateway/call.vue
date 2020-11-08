@@ -7,7 +7,7 @@
           <Col span="12">
             <FormItem label="互打设置">
               <FormatLabelTooltip slot="label" label="互打设置" content="启用后，设备空间端口将依据设置的触发条件互打。比如端口3拨打端口5"/>
-              <i-switch v-model="formData.mutualHitSetting" :true-value="1" :false-value="0">
+              <i-switch size="large" v-model="formData.mutualHitSetting" :true-value="1" :false-value="0">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -23,7 +23,7 @@
             <Col span="12">
               <FormItem label="短信发送">
                 <FormatLabelTooltip slot="label" label="短信发送" content="启用后，开始互打前被叫放先发送一条短信给主叫方"/>
-                <i-switch v-model="formData.mutualHitSmsSend" :true-value="1" :false-value="0">
+                <i-switch size="large" v-model="formData.mutualHitSmsSend" :true-value="1" :false-value="0">
                   <span slot="open">启用</span>
                   <span slot="close">禁用</span>
                 </i-switch>

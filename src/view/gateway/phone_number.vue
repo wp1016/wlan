@@ -7,7 +7,7 @@
         <Row>
           <Col span="12">
             <FormItem label="号码存储">
-              <i-switch v-model="formData.simNumberStorage" :true-value="1" :false-value="0" size="large">
+              <i-switch size="large" v-model="formData.simNumberStorage" :true-value="1" :false-value="0">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
@@ -63,7 +63,7 @@
         <Row>
           <Col span="12">
              <FormItem label="副卡">
-               <i-switch v-model="formData.subCard" :true-value="1" :false-value="0" size="large">
+               <i-switch size="large" v-model="formData.subCard" :true-value="1" :false-value="0">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
                </i-switch>

@@ -17,7 +17,7 @@
           <Row>
             <Col span="12">
               <FormItem label="短信用尽切卡">
-                <i-switch v-model="formData.smsExhausetChangeCard" :true-value="1" :false-value="0"></i-switch>
+                <i-switch size="large" v-model="formData.smsExhausetChangeCard" :true-value="1" :false-value="0"></i-switch>
               </FormItem>
             </Col>
             <Col span="12">
@@ -28,7 +28,7 @@
           <Row>
             <Col span="12">
               <FormItem label="只统计成功短信">
-                <i-switch v-model="formData.onlyStatisticSuccSms" :true-value="1" :false-value="0"></i-switch>
+                <i-switch size="large" v-model="formData.onlyStatisticSuccSms" :true-value="1" :false-value="0"></i-switch>
               </FormItem>
             </Col>
             <Col span="12">
@@ -38,7 +38,7 @@
           <Row>
             <Col span="12">
               <FormItem label="分端口设置">
-                <i-switch v-model="formData.subPortSetting" :true-value="1" :false-value="0"></i-switch>
+                <i-switch size="large" v-model="formData.subPortSetting" :true-value="1" :false-value="0"></i-switch>
               </FormItem>
             </Col>
             <Col span="12">

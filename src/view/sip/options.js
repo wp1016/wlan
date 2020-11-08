@@ -5,15 +5,15 @@ export const securityOptions = {
 }
 
 export const modeOptions = {
-  1: '注册',
-  2: '点对点'
+  0: '注册',
+  1: '点对点'
 }
 
-export const channelModeOptions = {
-  1: '轮流',
-  2: '平衡',
-  3: '顺序',
-  4: '随机'
+export const sipCallModeOptions = {
+  0: '轮流',
+  1: '平衡',
+  2: '顺序',
+  3: '随机'
 }
 
 export const responseCodeOptions = {
@@ -27,23 +27,23 @@ export const responseCodeOptions = {
 }
 
 export const contactTypeOptions = {
-  1: '本地地址',
-  2: '公网地址',
-  3: '自定义'
+  0: '本地地址',
+  1: '公网地址',
+  2: '自定义'
 }
 
 export const sourceOptions = {
-  1: 'To',
-  2: 'Request-Uri'
+  0: 'To',
+  1: 'Request-Uri'
 }
 
 export const sortOptions = {
-  1: '升序',
-  2: '降序',
-  3: '随机'
+  0: '升序',
+  1: '降序',
+  2: '随机'
 }
 
 export const routeOptions = {
-  1: '号码变换前',
-  2: '号码变换后'
+  0: '号码变换前',
+  1: '号码变换后'
 }

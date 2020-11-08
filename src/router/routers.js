@@ -22,9 +22,9 @@ const Login = () => import('@/view/login/login.vue')
 const Basic = () => import('@/view/basic/basic.vue')
 
 const SIPBasic = () => import('@/view/sip/basic.vue')
-const SIPWiring = () => import('@/view/sip/wiring.vue')
-const SIPStun = () => import('@/view/sip/stun.vue')
-const SIPMnp = () => import('@/view/sip/mnp.vue')
+// const SIPWiring = () => import('@/view/sip/wiring.vue')
+// const SIPStun = () => import('@/view/sip/stun.vue')
+// const SIPMnp = () => import('@/view/sip/mnp.vue')
 
 const GatewayPort = () => import('@/view/gateway/port.vue')
 const GatewayBsc = () => import('@/view/gateway/bsc.vue')
@@ -61,7 +61,7 @@ const MessagePrefix = () => import('@/view/message/prefix.vue')
 // const ApplicationInBlack = () => import('@/view/application/incoming_black.vue')
 // const ApplicationInWhite = () => import('@/view/application/incoming_white.vue')
 // const ApplicationChangeOnline = () => import('@/view/application/change_card_online.vue')
-// const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
+const ApplicationAutoCharge = () => import('@/view/application/auto_charge.vue')
 // const ApplicationStatusReport = () => import('@/view/application/status_report.vue')
 
 const AdvancedInternet = () => import('@/view/advanced/internet.vue')
@@ -76,7 +76,7 @@ const AdvancedEncode = () => import('@/view/advanced/encode.vue')
 const SystemUser = () => import('@/view/system/user.vue')
 const SystemRole = () => import('@/view/system/role.vue')
 const SystemDevice = () => import('@/view/system/device.vue')
-const SystemFile = () => import('@/view/system/file.vue')
+const SystemLog = () => import('@/view/system/log.vue')
 const SystemUpdate = () => import('@/view/system/update.vue')
 const SystemTest = () => import('@/view/system/test.vue')
 const SystemMonitor = () => import('@/view/system/monitor.vue')
@@ -150,40 +150,40 @@ export default [
     children: [
       {
         path: 'basic',
-        name: 'sip_basic_setting',
+        name: 'sip_setting',
         meta: {
-          title: '基本设置',
+          title: 'SIP设置',
           icon: 'ios-book'
         },
         component: SIPBasic
-      },
-      {
-        path: 'wiring',
-        name: 'wiring_setting',
-        meta: {
-          title: '线路设置',
-          icon: 'ios-book'
-        },
-        component: SIPWiring
-      },
-      {
-        path: 'stun',
-        name: 'stun_setting',
-        meta: {
-          title: 'STUN设置',
-          icon: 'ios-book'
-        },
-        component: SIPStun
-      },
-      {
-        path: 'mnp',
-        name: 'mnp_setting',
-        meta: {
-          title: '线路设置',
-          icon: 'ios-book'
-        },
-        component: SIPMnp
       }
+      // {
+      //   path: 'wiring',
+      //   name: 'wiring_setting',
+      //   meta: {
+      //     title: '线路设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: SIPWiring
+      // },
+      // {
+      //   path: 'stun',
+      //   name: 'stun_setting',
+      //   meta: {
+      //     title: 'STUN设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: SIPStun
+      // },
+      // {
+      //   path: 'mnp',
+      //   name: 'mnp_setting',
+      //   meta: {
+      //     title: '线路设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: SIPMnp
+      // }
     ]
   },
   {
@@ -452,89 +452,89 @@ export default [
 
     ]
   },
-  // {
-  //   path: '/application',
-  //   name: 'application_setting',
-  //   component: Main,
-  //   meta: {
-  //     title: '应用设置',
-  //     icon: 'md-home'
-  //   },
-  //   children: [
-  //     {
-  //       path: 'tel_dir',
-  //       name: 'telephone_directory',
-  //       meta: {
-  //         title: '电话簿',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationTelDir
-  //     },
-  //     {
-  //       path: 'rule',
-  //       name: 'dialing_rules',
-  //       meta: {
-  //         title: '拨号规则',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationDialingRules
-  //     },
-  //     {
-  //       path: 'exchange',
-  //       name: 'exchange_setting',
-  //       meta: {
-  //         title: '替换设置',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationExchange
-  //     },
-  //     {
-  //       path: 'in_black',
-  //       name: 'incoming_black_list',
-  //       meta: {
-  //         title: '呼入黑名单',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationInBlack
-  //     },
-  //     {
-  //       path: 'in_white',
-  //       name: 'incoming_white_list',
-  //       meta: {
-  //         title: '呼入白名单',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationInWhite
-  //     },
-  //     {
-  //       path: 'change_online',
-  //       name: 'change_card_online',
-  //       meta: {
-  //         title: '远程换卡',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationChangeOnline
-  //     },
-  //     {
-  //       path: 'auto',
-  //       name: 'auto_charge',
-  //       meta: {
-  //         title: '自动充值',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationAutoCharge
-  //     },
-  //     {
-  //       path: 'report',
-  //       name: 'status_report',
-  //       meta: {
-  //         title: '状态报告',
-  //         icon: 'ios-book'
-  //       },
-  //       component: ApplicationStatusReport
-  //     }
-  //   ]
-  // },
+  {
+    path: '/application',
+    name: 'application_setting',
+    component: Main,
+    meta: {
+      title: '应用设置',
+      icon: 'md-home'
+    },
+    children: [
+      // {
+      //   path: 'tel_dir',
+      //   name: 'telephone_directory',
+      //   meta: {
+      //     title: '电话簿',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationTelDir
+      // },
+      // {
+      //   path: 'rule',
+      //   name: 'dialing_rules',
+      //   meta: {
+      //     title: '拨号规则',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationDialingRules
+      // },
+      // {
+      //   path: 'exchange',
+      //   name: 'exchange_setting',
+      //   meta: {
+      //     title: '替换设置',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationExchange
+      // },
+      // {
+      //   path: 'in_black',
+      //   name: 'incoming_black_list',
+      //   meta: {
+      //     title: '呼入黑名单',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationInBlack
+      // },
+      // {
+      //   path: 'in_white',
+      //   name: 'incoming_white_list',
+      //   meta: {
+      //     title: '呼入白名单',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationInWhite
+      // },
+      // {
+      //   path: 'change_online',
+      //   name: 'change_card_online',
+      //   meta: {
+      //     title: '远程换卡',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationChangeOnline
+      // },
+      {
+        path: 'auto',
+        name: 'auto_charge',
+        meta: {
+          title: '自动充值',
+          icon: 'ios-book'
+        },
+        component: ApplicationAutoCharge
+      }
+      // {
+      //   path: 'report',
+      //   name: 'status_report',
+      //   meta: {
+      //     title: '状态报告',
+      //     icon: 'ios-book'
+      //   },
+      //   component: ApplicationStatusReport
+      // }
+    ]
+  },
   {
     path: '/advanced',
     name: 'advanced_setup',
@@ -655,17 +655,17 @@ export default [
         component: SystemDevice
       },
       {
-        path: 'file',
-        name: 'file_control',
+        path: 'log',
+        name: 'log_control',
         meta: {
-          title: '文件管理',
+          title: '日志管理',
           icon: 'ios-book'
         },
-        component: SystemFile
+        component: SystemLog
       },
       {
         path: 'update',
-        name: 'update & renew',
+        name: 'system_recovery',
         meta: {
           title: '系统升级或恢复',
           icon: 'ios-book'

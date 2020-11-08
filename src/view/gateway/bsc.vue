@@ -36,7 +36,7 @@
           <Col span="12">
             <FormItem label="基站平衡">
               <FormLabelTooltip slot="label" label="基站平衡" content="禁用，每个端口将尽量选择信号较好的基站进行注册，启用后，每个端口将尽量分散基站进行注册，以此缓解基站压力"/>
-              <i-switch v-model="formData.baseStationBalance" :true-value="1" :false-value="0" size="large">
+              <i-switch size="large" v-model="formData.baseStationBalance" :true-value="1" :false-value="0">
                 <span slot="open">启用</span>
                 <span slot="close">禁用</span>
               </i-switch>
