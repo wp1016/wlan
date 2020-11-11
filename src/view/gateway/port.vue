@@ -6,7 +6,7 @@
         <Row>
           <Col span="12">
             <FormItem label="频段选择">
-              <Select v-model="formData.frequencyBandSelect">
+              <Select transfer v-model="formData.frequencyBandSelect">
                 <Option v-for="item in bandOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -15,7 +15,7 @@
         <Row>
           <Col span="12">
             <FormItem label="网络类型">
-              <Select v-model="formData.netWorkType">
+              <Select transfer v-model="formData.netWorkType">
                 <Option v-for="item in netTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -24,7 +24,7 @@
         <Row>
           <Col span="12">
             <FormItem label="注册类型">
-              <Select v-model="formData.registerType">
+              <Select transfer v-model="formData.registerType">
                 <Option v-for="item in registerTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

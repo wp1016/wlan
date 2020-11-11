@@ -126,10 +126,14 @@
 </template>
 
 <script>
+import mixins from '@/mixins'
+
 import DragList from '@/components/drag-list'
 import FormLabelTooltip from '@/components/formLabelToolTip'
 export default {
   name: 'encode',
+  mixins: [mixins],
+
   components: {
     FormLabelTooltip,
     DragList
@@ -214,9 +218,7 @@ export default {
     handleChange ({ src, target, oldIndex, newIndex }) {
       // TODO 添加修改的数据
       // this.handleList.push(`${src} => ${target}, ${oldIndex} => ${newIndex}`)
-    },
-    handleSubmit () {},
-    handleCancel () {}
+    }
   }
 }
 </script>

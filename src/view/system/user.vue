@@ -30,7 +30,7 @@
           <Input v-model="formData.password2" placeholder="密码由6-15位英文字母、数字或下划线组成" :maxlength="15" type="password"></Input>
         </FormItem>
         <FormItem label="角色" prop="role">
-          <Select v-model="formData.role">
+          <Select transfer v-model="formData.role">
             <Option v-for="item in roleOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
           </Select>
         </FormItem>

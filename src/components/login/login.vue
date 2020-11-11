@@ -3,24 +3,22 @@
 </style>
 
 <template>
-  <div class="login">
-    <div class="login-con">
-      <Card icon="log-in" title="欢迎登录" :bordered="false">
-        <div class="form-con">
-          <login-form @on-success-valid="handleSubmit"></login-form>
-          <p class="login-tip">输入任意用户名和密码即可</p>
-        </div>
-      </Card>
-    </div>
-  </div>
+  <Modal transfer v-model="showModal" :mask-closable="false">
+    <login-form @on-success-valid="handleSubmit"></login-form>
+  </Modal>
 </template>
 
 <script>
-import LoginForm from '_c/login-form'
 import { mapActions } from 'vuex'
+import loginForm from '../login-form'
 export default {
   components: {
-    LoginForm
+    loginForm
+  },
+  data () {
+    return {
+      showModal: false
+    }
   },
   methods: {
     ...mapActions([
@@ -35,6 +33,9 @@ export default {
           })
         })
       })
+    },
+    show() {
+      this.showModal = true
     }
   }
 }

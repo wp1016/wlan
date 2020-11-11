@@ -1,13 +1,13 @@
 <template>
   <div class="page-content">
     <h1 class="page-title">基本设置</h1>
-     <Card class="card-content" title="运行参数">
-      <div class="form-content">
-        <Form :model="formData" :label-width="180">
+    <Form :model="formData" :label-width="180">
+      <Card class="card-content" title="基本参数">
+        <div class="card-wrapper">
           <Row>
             <Col span="12">
               <FormItem label="协议模式">
-                <Select v-model="formData.sipProtocolMode">
+                <Select transfer v-model="formData.sipProtocolMode">
                     <Option v-for="item in modeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -15,7 +15,7 @@
 
             <Col span="12">
               <FormItem label="加密方法">
-                <Select v-model="formData.sipEncrtTion">
+                <Select transfer v-model="formData.sipEncrtTion">
                     <Option v-for="item in securityOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -158,14 +158,14 @@
                   </Tooltip>
                 </template>
 
-                <Select v-model="formData.sipCallMode">
+                <Select transfer v-model="formData.sipCallMode">
                   <Option v-for="item in sipCallModeOptions" :key="item .value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
             </Col>
           </Row>
 
-          <Row>
+          <!-- <Row>
             <Col span="24">
               <FormItem label="上报线路容量">
                 <FormLabelTooltip slot="label" label="上报线路容量" content="此功能仅支持VOS 2.1.6.00（VOS2009,VOS3000）及以上版本"/>
@@ -276,23 +276,110 @@
               </FormItem>
             </Col>
 
-          </Row>
+          </Row> -->
 
           <FormItem>
             <Button type="primary" @click="handleSubmit">确定</Button>
             <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
           </FormItem>
-        </Form>
-      </div>
+
+        </div>
+      </Card>
+
+     <Card title="SIP账户" class="card-content">
+       <Table :columns="sipAccountTableColumns" :data="formData.sipAccountList">
+         <template slot="sipStatus" slot-scope="{row, index}">
+           {{row.sipStatus}}
+         </template>
+       </Table>
+       <FormItem style="margin-top: 15px;">
+         <Button type="primary" @click="handleSubmit">确定</Button>
+         <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
+       </FormItem>
      </Card>
+
+     <Card title="自动挂机" class="card-content">
+       <div class="card-wrapper">
+        <Row>
+          <Col span="12">
+            <FormItem label="呼叫开始后多少秒启用">
+              <i-switch size="large" v-model="formData.callStartEnable" :true-value="1" :false-value="0">
+                <span slot="open">启用</span>
+                <span slot="close">禁用</span>
+              </i-switch>
+            </FormItem>
+          </Col>
+          <Col span="12">
+            <FormItem>
+              <Input v-model="formData.callStartTime" :disabled="formData.callStartEnable===0" type="number">
+                <span slot="append">秒</span>
+              </Input>
+            </FormItem>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span="12">
+            <FormItem label="振铃后多少秒启用">
+              <i-switch size="large" v-model="formData.ringEnable" :true-value="1" :false-value="0">
+                <span slot="open">启用</span>
+                <span slot="close">禁用</span>
+              </i-switch>
+            </FormItem>
+          </Col>
+          <Col span="12">
+            <FormItem>
+              <Input v-model="formData.ringTime" :disabled="formData.ringEnable===0" type="number">
+                <span slot="append">秒</span>
+              </Input>
+            </FormItem>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col span="12">
+            <FormItem label="接通后多少秒启用">
+              <i-switch size="large" v-model="formData.acceptEnable" :true-value="1" :false-value="0">
+                <span slot="open">启用</span>
+                <span slot="close">禁用</span>
+              </i-switch>
+            </FormItem>
+          </Col>
+          <Col span="12">
+            <FormItem>
+              <Input v-model="formData.acceptTime" :disabled="formData.acceptEnable===0" type="number">
+                <span slot="append">秒</span>
+              </Input>
+            </FormItem>
+          </Col>
+        </Row>
+
+        <FormItem>
+          <Button type="primary" @click="handleSubmit">确定</Button>
+          <Button @click="handleCancel" style="margin-left: 8px">取消</Button>
+        </FormItem>
+       </div>
+     </Card>
+    </Form>
+
   </div>
 </template>
 
 <script>
 import FormLabelTooltip from '@/components/formLabelToolTip'
 
-import { genarateOptions } from '@/libs/genarateOptions'
-import { securityOptions, modeOptions, sipCallModeOptions, responseCodeOptions, contactTypeOptions, sourceOptions } from './options'
+import {
+  genarateOptions,
+  genaratePorts
+} from '@/libs/genarateOptions'
+import {
+  securityOptions,
+  modeOptions,
+  sipCallModeOptions
+  // responseCodeOptions
+  // contactTypeOptions
+  // sourceOptions
+} from './options'
 
 export default {
   name: 'basic_setting',
@@ -319,24 +406,71 @@ export default {
         sipAccordCallerSelect: 0,
         sipAcceptOtherCall: 0,
         sipCallMode: 0,
-        sipReportCapacity: 0,
-        sipSelectFailedId: '503',
-        sipUserAgent: '',
-        sipDelayAnswer: 0,
-        delayTime: 0,
-        sipIgnoreAnswer: 0,
-        sipIgnoreContact: 0,
-        sipIgnoreRtpDesc: 0,
-        sipContactType: 0,
-        contactAddress: '',
-        sipCalledSource: 0
+        // sipReportCapacity: 0,
+        // sipSelectFailedId: '503',
+        // sipUserAgent: '',
+        // sipDelayAnswer: 0,
+        // delayTime: 0,
+        // sipIgnoreAnswer: 0,
+        // sipIgnoreContact: 0,
+        // sipIgnoreRtpDesc: 0,
+        // sipContactType: 0,
+        // contactAddress: '',
+        // sipCalledSource: 0,
+        sipAccountList: genaratePorts(32, {
+          linePrefix: '186',
+          sipNumber: '123456789',
+          sipAccount: '1234',
+          sipPasswd: '1234',
+          sipStatus: 1
+        }),
+        callStartEnable: 0,
+        callStartTime: 10,
+        ringEnable: 0,
+        ringTime: 1,
+        acceptEnable: 0,
+        acceptTime: 1
       },
       modeOptions: genarateOptions(modeOptions),
       securityOptions: genarateOptions(securityOptions),
       sipCallModeOptions: genarateOptions(sipCallModeOptions),
-      responseCodeOptions: genarateOptions(responseCodeOptions),
-      contactOptions: genarateOptions(contactTypeOptions),
-      sourceOptions: genarateOptions(sourceOptions)
+      // responseCodeOptions: genarateOptions(responseCodeOptions),
+      // contactOptions: genarateOptions(contactTypeOptions),
+      // sourceOptions: genarateOptions(sourceOptions),
+      sipAccountTableColumns: [
+        {
+          key: 'port',
+          title: '端口',
+          align: 'center',
+          width: 80
+        },
+        {
+          key: 'linePrefix',
+          title: '线路前缀',
+          align: 'center'
+        },
+        {
+          key: 'sipNumber',
+          title: '号码',
+          align: 'center'
+        },
+        {
+          key: 'sipAccount',
+          title: '账号',
+          align: 'center'
+        },
+        {
+          key: 'sipPasswd',
+          title: '密码'
+        },
+        {
+          key: 'sipStatus',
+          title: '状态(显示)',
+          align: 'center',
+          slot: 'sipStatus',
+          width: 100
+        }
+      ]
     }
   },
   methods: {

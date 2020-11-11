@@ -17,6 +17,7 @@
     <FormItem>
       <Button @click="handleSubmit" type="primary" long>登录</Button>
     </FormItem>
+    <div slot="footer"></div>
   </Form>
 </template>
 <script>

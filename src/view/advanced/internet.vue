@@ -7,7 +7,7 @@
           <Col span="12">
             <FormItem label="VPN支持">
               <FormLabelTooltip slot="label" label="VPN支持" content="启用VPN后，会修改默认出口为VPN接口"></FormLabelTooltip>
-              <Select v-model="formData.vpnType">
+              <Select transfer v-model="formData.vpnType">
                 <Option v-for="item in vpnTypeOptions" :value="item.value" :key="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -39,7 +39,7 @@
           <Row>
             <Col span="12">
               <FormItem label="CHAP">
-                <Select v-model="formData.pptpChap">
+                <Select transfer v-model="formData.pptpChap">
                   <Option v-for="item in chapOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -48,7 +48,7 @@
           <Row>
             <Col span="12">
               <FormItem label="MPPE">
-                <Select v-model="formData.pptpMppe">
+                <Select transfer v-model="formData.pptpMppe">
                   <Option v-for="item in mppeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -80,7 +80,7 @@
                     <p><strong>证书</strong>证书中已经包含服务器地址和协议等配置，请使用该模式</p>
                     <p><strong>证书和配置</strong>证书中没有配置信息，需要在设备上配置，请使用该模式</p>
                   </template>
-                  <Select v-model="formData.openvpnConfirmMode">
+                  <Select transfer v-model="formData.openvpnConfirmMode">
                     <Option v-for="item in VPNmodeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                   </Select>
                 </FormLabelTooltip>
@@ -111,7 +111,7 @@
           <Row>
             <Col span="12">
               <FormItem label="协议">
-                <Select v-model="formData.openvpnLink">
+                <Select transfer v-model="formData.openvpnLink">
                   <Option v-for="item in linkOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -143,12 +143,16 @@
 </template>
 
 <script>
+import mixins from '@/mixins'
+
 import FormLabelTooltip from '@/components/formLabelToolTip'
 import { genarateOptions } from '@/libs/genarateOptions'
 import { vpnTypeOptions, chapOptions, mppeOptions, VPNmodeOptions, linkOptions } from './options'
 
 export default {
   name: 'internet',
+  mixins: [mixins],
+
   components: {
     FormLabelTooltip
   },

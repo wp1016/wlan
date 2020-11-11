@@ -12,7 +12,7 @@
         <Row>
           <Col span="12">
             <FormItem label="文件类型">
-              <Select v-model="formData.fileType">
+              <Select transfer v-model="formData.fileType">
                 <Option v-for="item in fileTypeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
@@ -38,7 +38,7 @@
             <div class="export-config-wrapper">
               <div class="config-type">
                 <span>配置类型</span>
-                <Select v-model="exportConfiguration.configType">
+                <Select transfer v-model="exportConfiguration.configType">
                   <Option :value="0">配置</Option>
                   <Option :value="1">IMEI</Option>
                 </Select>

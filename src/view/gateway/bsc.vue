@@ -115,7 +115,7 @@
         <Table :columns="tableColumns" :data="tableData">
 
           <template slot="baseStationSelect" slot-scope="{ row }">
-            <Select v-model="row.baseStationSelect">
+            <Select transfer v-model="row.baseStationSelect">
               <Option :value="0">auto</Option>
               <Option :value="1">poll</Option>
             </Select>

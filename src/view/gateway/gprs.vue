@@ -135,9 +135,5 @@ export default {
 </script>
 <style lang="less" scoped>
 @import '../../assets/css/common';
-.button-wrapper {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-}
+
 </style>

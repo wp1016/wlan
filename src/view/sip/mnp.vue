@@ -19,7 +19,7 @@
           <Row>
             <Col span="12">
               <FormItem label="端口选择顺序">
-                <Select v-model="formData.portSort">
+                <Select transfer v-model="formData.portSort">
                   <Option v-for="item in sortOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -32,7 +32,7 @@
           <Row>
             <Col span="12">
               <FormItem label="路由">
-                <Select v-model="formData.route">
+                <Select transfer v-model="formData.route">
                   <Option v-for="item in routeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>

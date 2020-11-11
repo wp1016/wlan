@@ -13,28 +13,13 @@ export const genarateOptions = function (options) {
   return res
 }
 
-export const genaratePorts = function (num, others) {
+export const genaratePorts = function (num, others, append = '') {
   let res = []
   for (let i = 0; i < num; i++) {
-    res = res.concat([
-      {
-        port: i + 1 + 'A',
-        ...others
-      },
-      {
-        port: i + 1 + 'B',
-        ...others
-      },
-      {
-        port: i + 1 + 'C',
-        ...others
-      },
-      {
-        port: i + 1 + 'D',
-        ...others
-      }
-    ])
+    res.push({
+      port: i + 1 + append,
+      ...others
+    })
   }
-
   return res
 }

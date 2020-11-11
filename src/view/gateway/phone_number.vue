@@ -17,7 +17,7 @@
         <Row>
           <Col span="12">
             <FormItem label="号码来源">
-              <Select v-model="formData.simNumberSource">
+              <Select transfer v-model="formData.simNumberSource">
                 <Option v-for="item in simNumberSourceOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

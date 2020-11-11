@@ -6,7 +6,7 @@
         <Row>
           <Col span="12">
             <FormItem label="前缀匹配">
-              <Select v-model="formData.prefixMatch">
+              <Select transfer v-model="formData.prefixMatch">
                 <Option v-for="item in prefixOptions" :value="item.value" :key="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

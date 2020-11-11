@@ -1,3 +1,8 @@
+export const roleMap = {
+  0: 'Admin',
+  1: 'User'
+}
+
 export const timeRangeOptions = {
   0: '禁用',
   1: '00:00',

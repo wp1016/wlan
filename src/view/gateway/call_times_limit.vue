@@ -6,7 +6,7 @@
         <Row>
           <Col span="12">
             <FormItem label="限制模式">
-              <Select v-model="formData.conversationNumLimitMode">
+              <Select transfer v-model="formData.conversationNumLimitMode">
                 <Option v-for="item in conversationNumLimitModeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

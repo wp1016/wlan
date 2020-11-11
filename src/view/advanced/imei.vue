@@ -3,18 +3,17 @@
     <h1 class="page-title">IMEI设置</h1>
     <Form :model="formData" :label-width="180">
       <Card class="card-content" title="IMEI设置">
-        <Row>
-          <Col span="12">
-            <FormItem label="IMEI修改">
-              <Select v-model="formData.imeiRevise">
-                <Option v-for="item in reviseOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
-              </Select>
-            </FormItem>
-          </Col>
-        </Row>
-        <FormItem v-if="formData.imeiRevise===3" label="状态">
-          {{formData.etmsGetImeiStatus}}
-        </FormItem>
+        <div class="card-wrapper">
+          <Row>
+            <Col span="12">
+              <FormItem label="IMEI修改模式">
+                <Select transfer v-model="formData.imeiRevise">
+                  <Option v-for="item in reviseOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
+                </Select>
+              </FormItem>
+            </Col>
+          </Row>
+        </div>
       </Card>
 
       <Card class="card-content" title="动态IMEI列表" v-if="formData.imeiRevise===1">
@@ -22,25 +21,24 @@
             <Button type="primary" @click="add">添加数据</Button>
         </div>
         </Row>
-        <Table :columns="dTableColumns" :data="dTableData">
+        <Table :columns="dTableColumns" :data="formData.dynamicImeiList">
           <template slot="imeiFirstValue" slot-scope="{ row, index }">
-            <Input v-model="row.imeiFirstValue" v-if="index === editIndex"></Input>
+            <Input v-model="formData.dynamicImeiList[index].imeiFirstValue" v-if="index === editIndex"></Input>
             <span v-else>{{row.imeiFirstValue}}</span>
           </template>
 
           <template slot="imeiNumber" slot-scope="{ row, index }">
-            <Input v-model="row.imeiNumber" v-if="index === editIndex"></Input>
+            <Input v-model="formData.dynamicImeiList[index].imeiNumber" v-if="index === editIndex"></Input>
             <span v-else>{{row.imeiNumber}}</span>
           </template>
 
           <template slot-scope="{row, index}" slot="operation">
             <template v-if="editIndex === index">
               <Button type="primary" size="small" style="margin-right: 5px" @click="save(index)">保存</Button>
-              <Button type="error" size="small" @click="cancel(index)">取消</Button>
             </template>
             <template v-else>
               <Button type="primary" size="small" style="margin-right: 5px" @click="edit(index)">编辑</Button>
-              <Button type="error" size="small" @click="remove(index)">删除</Button>
+              <Button size="small" @click="remove(index)">删除</Button>
             </template>
 
           </template>
@@ -52,19 +50,21 @@
       </Card>
 
       <Card class="card-content" title="基本设置" v-if="formData.imeiRevise===2">
-        <Row>
-          <Col span="12">
-            <FormItem label="服务器地址">
-              <Input v-model="formData.espsGetImeiServIp"></Input>
-            </FormItem>
-          </Col>
-          <Col span="12">
-            <span class="form-tips">*如要指定端口，请加 端口</span>
-          </Col>
-        </Row>
-        <FormItem label="状态">
-          {{formData.espsGetImeiServStatu}}
-        </FormItem>
+        <div class="card-wrapper">
+          <Row>
+            <Col span="12">
+              <FormItem label="服务器地址">
+                <Input v-model="formData.espsGetImeiServIp"></Input>
+              </FormItem>
+            </Col>
+            <Col span="12">
+              <span class="form-tips">*如要指定端口，请加 端口</span>
+            </Col>
+          </Row>
+          <FormItem label="状态">
+            {{formData.espsGetImeiServStatu}}
+          </FormItem>
+        </div>
       </Card>
 
       <Card class="card-content" title="IMEI切换">
@@ -155,20 +155,20 @@
 
       <Card class="card-content" title="端口IMEI">
         <Table :columns="tableColumns" :data="formData.portImei">
-          <div class="flex-box" slot="aCode" slot-scope="{row}">
-            <span>A</span> <Input v-model="row.aCode"></Input>
+          <div class="flex-box" slot="aCode" slot-scope="{row, index}">
+            <span>A</span> <Input v-model="formData.portImei[index].aCode"></Input>
           </div>
 
-          <div class="flex-box" slot="bCode" slot-scope="{row}">
-            <span>B</span> <Input v-model="row.bCode"></Input>
+          <div class="flex-box" slot="bCode" slot-scope="{row, index}">
+            <span>B</span> <Input v-model="formData.portImei[index].bCode"></Input>
           </div>
 
-          <div class="flex-box" slot="cCode" slot-scope="{row}">
-            <span>C</span> <Input v-model="row.cCode"></Input>
+          <div class="flex-box" slot="cCode" slot-scope="{row, index}">
+            <span>C</span> <Input v-model="formData.portImei[index].cCode"></Input>
           </div>
 
-          <div class="flex-box" slot="dCode" slot-scope="{row}">
-            <span>D</span> <Input v-model="row.dCode"></Input>
+          <div class="flex-box" slot="dCode" slot-scope="{row, index}">
+            <span>D</span> <Input v-model="formData.portImei[index].dCode"></Input>
           </div>
         </Table>
         <FormItem style="margin-top:10px;">
@@ -181,15 +181,20 @@
 </template>
 
 <script>
-import { genarateOptions } from '@/libs/genarateOptions'
+import mixins from '@/mixins'
+
+import { genarateOptions, genaratePorts } from '@/libs/genarateOptions'
 import { reviseOptions } from './options'
 
 export default {
   name: 'imei',
+  mixins: [mixins],
+
   data () {
     return {
       formData: {
         imeiRevise: 0,
+        dynamicImeiList: [],
         whenChangeSimCard: 0,
         continuousCallFailure: 0,
         failedNum: 0,
@@ -202,14 +207,11 @@ export default {
         imeiCallDuration: 0,
         callDuration: 0,
         callMinUnit: 0,
-        portImei: [{
-          port: 1,
-          imei: '864480040990987',
+        portImei: genaratePorts(32, { imei: '864480040990987',
           aCode: '',
           bCode: '',
           cCode: '',
-          dCode: ''
-        }],
+          dCode: '' }),
         espsGetImeiServIp: '',
         espsGetImeiServStatu: 'IDLE',
         etmsGetImeiStatus: 'IDLE'
@@ -262,33 +264,26 @@ export default {
           title: '操作',
           slot: 'operation'
         }
-      ],
-      dTableData: []
+      ]
     }
   },
   methods: {
     add () {
-      this.dTableData.push({
+      this.formData.dynamicImeiList.push({
         imeiFirstValue: 0,
         imeiNumber: 0
       })
-      this.editIndex = this.dTableData.length - 1
+      this.editIndex = this.formData.dynamicImeiList.length - 1
     },
     edit (index) {
       this.editIndex = index
     },
     remove (index) {
-      this.dTableData.splice(index, 1)
+      this.formData.dynamicImeiList.splice(index, 1)
     },
     save (index) {
       this.editIndex = -1
-    },
-    cancel (index) {
-      this.editIndex = -1
-      // TODO
-    },
-    handleSubmit () {},
-    handleCancel () {}
+    }
   }
 }
 </script>

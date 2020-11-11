@@ -6,7 +6,7 @@
         <Row>
           <Col span="12">
             <FormItem label="SMS控制模式">
-              <Select v-model="formData.smsControlMode">
+              <Select transfer v-model="formData.smsControlMode">
                 <Option v-for="item in modeOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

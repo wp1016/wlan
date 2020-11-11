@@ -18,7 +18,7 @@
           <Row>
             <Col span="12">
               <FormItem label="充值平台">
-                <Select v-model="formData.rechargePlatform">
+                <Select transfer v-model="formData.rechargePlatform">
                   <Option v-for="item in chargePlatformOptions" :value="item.value" :key="item.value">{{item.label}}</Option>
                 </Select>
               </FormItem>
@@ -89,7 +89,7 @@
             <Row>
               <Col span="12">
                 <FormItem label="号码类型">
-                  <Select v-model="formData.rechargePlatform1_NumType">
+                  <Select transfer v-model="formData.rechargePlatform1_NumType">
                     <Option v-for="item in rechargeNumTypeOptions" :value="item.value" :key="item.key">{{item.label}}</Option>
                   </Select>
                 </FormItem>
@@ -150,7 +150,7 @@
             <Row>
               <Col span="12">
                 <FormItem label="号码类型">
-                  <Select v-model="formData.rechargePlatform2_NumType">
+                  <Select transfer v-model="formData.rechargePlatform2_NumType">
                     <Option v-for="item in rechargeNumTypeOptions" :value="item.value" :key="item.key">{{item.label}}</Option>
                   </Select>
                 </FormItem>
@@ -256,7 +256,7 @@
             <Row>
               <Col span="12">
                 <FormItem label="号码类型">
-                  <Select v-model="formData.rechargePlatform3_NumType">
+                  <Select transfer v-model="formData.rechargePlatform3_NumType">
                     <Option v-for="item in rechargeNumTypeOptions" :value="item.value" :key="item.key">{{item.label}}</Option>
                   </Select>
                 </FormItem>
@@ -331,7 +331,7 @@
             <Row>
               <Col span="12">
                 <FormItem label="号码类型">
-                  <Select v-model="formData.rechargePlatform4_NumType">
+                  <Select transfer v-model="formData.rechargePlatform4_NumType">
                     <Option v-for="item in rechargeNumTypeOptions" :value="item.value" :key="item.key">{{item.label}}</Option>
                   </Select>
                 </FormItem>

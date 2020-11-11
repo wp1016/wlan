@@ -28,7 +28,7 @@
         <Row>
           <Col span="12">
             <FormItem label="运营商来源">
-              <Select v-model="formData.operatorsSource">
+              <Select transfer v-model="formData.operatorsSource">
                 <Option v-for="item in operatorsSourceOptions" :key="item.value" :value="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>

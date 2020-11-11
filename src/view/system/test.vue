@@ -69,7 +69,7 @@
         <Row>
           <Col span="12">
             <FormItem label="文件大小">
-              <Select v-model="formData.packetCaptureFileSize">
+              <Select transfer v-model="formData.packetCaptureFileSize">
                 <Option v-for="item in fileSezeOptions" :value="item.value" :key="item.value">{{item.label}}</Option>
               </Select>
             </FormItem>
